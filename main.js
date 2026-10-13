@@ -2,7 +2,6 @@
   "use strict";
 
   var data = window.__BRAND__ || {};
-  var contact = data.contact || {};
   var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   var $ = function (sel, scope) { return (scope || document).querySelector(sel); };
@@ -210,33 +209,6 @@
     Object.keys(map).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
   }
 
-  /* ---------- Formularios → correo (no se envía nada a terceros) ---------- */
-  function initForms() {
-    var to = contact.email || "maran.abogados@gmail.com";
-    $$("form[data-mailto]").forEach(function (form) {
-      if (form.getAttribute("data-bound")) return;
-      form.setAttribute("data-bound", "1");
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        if (!form.reportValidity()) return;
-        var subject = form.getAttribute("data-subject") || "Solicitud de consulta desde la web";
-        var lines = [];
-        $$("input, textarea, select", form).forEach(function (field) {
-          if (!field.name || field.type === "checkbox" || field.type === "submit") return;
-          if (field.type === "radio" && !field.checked) return;
-          var label = field.getAttribute("data-label") || field.name;
-          lines.push(label + ": " + (field.value || "").trim());
-        });
-        lines.push("");
-        lines.push("— Enviado desde el formulario de la web. El remitente ha aceptado la política de privacidad.");
-        var href = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
-        var status = form.querySelector("[data-status]");
-        if (status) status.textContent = "Se abrirá su aplicación de correo con el mensaje preparado. Solo tiene que pulsar «Enviar».";
-        window.location.href = href;
-      });
-    });
-  }
-
   /* ---------- Año del pie ---------- */
   function initYear() {
     $$("[data-year]").forEach(function (el) { el.textContent = String(new Date().getFullYear()); });
@@ -249,7 +221,6 @@
     safe(initReveals, "initReveals");
     safe(initCounters, "initCounters");
     safe(initPracticeNav, "initPracticeNav");
-    safe(initForms, "initForms");
     safe(initYear, "initYear");
     if (window.gsap && window.ScrollTrigger) {
       try { gsap.registerPlugin(ScrollTrigger); } catch (_) {}

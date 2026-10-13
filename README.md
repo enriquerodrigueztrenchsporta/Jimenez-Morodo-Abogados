@@ -34,24 +34,21 @@ Las páginas de la raíz se **generan**. No las edites a mano:
 
 3. Vista previa local: `python -m http.server 8765` y abre `http://localhost:8765/`.
 
-Los estilos están en `styles.css` y el comportamiento en `main.js`; los datos de contacto que usan
-los formularios, en `lib/manifest.js`.
+Los estilos están en `styles.css`, el comportamiento en `main.js` y los datos de la marca en
+`lib/manifest.js`.
 
-## Formularios
+## Contacto
 
-Los formularios **no envían datos a ningún servidor**: al pulsar «Enviar» se abre la aplicación de
-correo del visitante con el mensaje preparado para `maran.abogados@gmail.com`. Para recibirlos
-directamente desde la web haría falta un servicio de formularios, que debe aprobarse antes porque
-implica tratar datos personales con un tercero.
+La web no tiene formularios (previstos para una fase posterior) ni mapa, porque el despacho no
+tiene oficina física. El contacto se hace por teléfono (`tel:`) o por correo (`mailto:`).
 
 ## Contenido pendiente
 
-Está marcado en la web con recuadros amarillos `[PENDIENTE]`:
+Está marcado en la web con recuadros amarillos `[PENDIENTE]`, solo en las páginas legales:
 
-- Dirección del despacho.
-- Historia, equipo y datos de colegiación (colegio y número de colegiado).
-- Datos del titular para el aviso legal y la política de privacidad (nombre o razón social, NIF,
-  domicilio, plazos de conservación, proveedor de correo).
+- Datos del titular para el aviso legal y la política de privacidad: nombre o razón social, NIF,
+  domicilio a efectos de notificaciones, colegio y número de colegiado, plazos de conservación y
+  proveedor de correo.
 - Los textos legales son borradores y debe revisarlos el despacho.
 
 ## Publicación

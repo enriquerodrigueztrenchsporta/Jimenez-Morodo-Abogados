@@ -1,6 +1,6 @@
 {
   "justicia": {
-    "src": "assets/img/justicia.jpg",
+    "src": "assets/img/justicia.webp",
     "title": "Close-up of Lady Justice statue holding scales, symbolizing justice and fairness",
     "creator": "DP Singh Bhullar",
     "creator_url": "https://commons.wikimedia.org/wiki/User:Bhullargraphic",
@@ -11,7 +11,7 @@
     "source": "wikimedia"
   },
   "jurisprudencia": {
-    "src": "assets/img/jurisprudencia.jpg",
+    "src": "assets/img/jurisprudencia.webp",
     "title": "Leather Bound Books",
     "creator": "geishaboy500",
     "creator_url": "https://www.flickr.com/photos/49503154413@N01",
@@ -22,7 +22,7 @@
     "source": "flickr"
   },
   "confianza": {
-    "src": "assets/img/confianza.jpg",
+    "src": "assets/img/confianza.webp",
     "title": "Work Business",
     "creator": "Kristin Hardwick",
     "creator_url": "https://www.kristinhardwick.com",
@@ -33,7 +33,7 @@
     "source": "stocksnap"
   },
   "sala": {
-    "src": "assets/img/sala.jpg",
+    "src": "assets/img/sala.webp",
     "title": "Osgoode Hall Level 2 Courtroom Interior 2023",
     "creator": "Canmenwalker",
     "creator_url": "https://commons.wikimedia.org/w/index.php?title=User:Canmenwalker&action=edit&redlink=1",
@@ -44,7 +44,7 @@
     "source": "wikimedia"
   },
   "revolving": {
-    "src": "assets/img/revolving.jpg",
+    "src": "assets/img/revolving.webp",
     "title": "Calculator and Money",
     "creator": "Images_of_Money",
     "creator_url": "https://www.flickr.com/photos/59937401@N07",
@@ -55,7 +55,7 @@
     "source": "flickr"
   },
   "hipoteca": {
-    "src": "assets/img/hipoteca.jpg",
+    "src": "assets/img/hipoteca.webp",
     "title": "Property Law - Gavel and Block and House Keys",
     "creator": "advokatsmart.no",
     "creator_url": null,
@@ -66,7 +66,7 @@
     "source": "wikimedia"
   },
   "segunda-oportunidad": {
-    "src": "assets/img/segunda-oportunidad.jpg",
+    "src": "assets/img/segunda-oportunidad.webp",
     "title": "Walking on Water",
     "creator": "Kevin Krejci",
     "creator_url": "https://www.flickr.com/photos/48889057888@N01",

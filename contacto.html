@@ -12,7 +12,7 @@
   <meta property="og:title" content="Contacto · Maran Abogados">
   <meta property="og:description" content="Solicita una consulta con Maran Abogados por teléfono, correo electrónico o mediante nuestro formulario.">
   <meta property="og:locale" content="es_ES">
-  <link rel="icon" type="image/png" href="assets/img/emblema-maran.png">
+  <link rel="icon" type="image/webp" href="assets/img/favicon.webp">
   <link rel="preload" href="assets/fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css?v=20261013">
@@ -40,7 +40,7 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="index.html" aria-label="Maran Abogados — inicio">
-        <img class="brand__mark" src="assets/img/emblema-maran.png" alt="" width="462" height="480">
+        <img class="brand__mark" src="assets/img/emblema-maran.webp" alt="" width="462" height="480">
         <span class="brand__text" aria-hidden="true">
           <span class="brand__name">MARAN</span>
           <span class="brand__sub">ABOGADOS</span>
@@ -84,7 +84,7 @@
           <p class="kicker">Contacto</p>
           <h1 class="display-l" id="page-title" data-split>Consulte con nuestro<br>equipo para recibir<br>una asesoría <em>especializada</em></h1>
           <div class="page-head__aside reveal" data-delay="0.4">
-            <p class="deck">Para consultas legales, gestión de casos o solicitar una cita, puede contactarnos mediante nuestro formulario o por teléfono.</p>
+            <p class="deck">Solicita una consulta por teléfono o por correo electrónico.</p>
           </div>
         </div>
       </div>
@@ -96,50 +96,17 @@
           <div>
             <p class="kicker reveal">Solicita una consulta</p>
             <h2 class="display-m reveal" id="consulta-title" style="margin-top:1.2rem">Estamos a su disposición</h2>
-            <p class="lede reveal" style="margin-top:1.4rem">Para consultas legales, gestión de casos, o solicitar una cita con nuestros especialistas en derecho civil, penal y extranjería, puede contactarnos mediante nuestro formulario o por teléfono. Estamos a su disposición para brindarle el mejor servicio jurídico.</p>
-            <dl class="contact-list reveal">
-              <div><dt>Teléfono</dt><dd><a href="tel:+34624566690">+34 624 566 690</a></dd></div>
-              <div><dt>Correo electrónico</dt><dd><a href="mailto:maran.abogados@gmail.com">maran.abogados@gmail.com</a></dd></div>
-              <div><dt>Dirección</dt><dd><span class="pending">[DIRECCIÓN DEL DESPACHO PENDIENTE]</span></dd></div>
-            </dl>
+            <p class="lede reveal" style="margin-top:1.4rem">Para consultas legales, gestión de casos, o solicitar una cita con nuestros especialistas en derecho civil, penal y extranjería, puede contactarnos por teléfono o por correo electrónico. Estamos a su disposición para brindarle el mejor servicio jurídico.</p>
           </div>
           <div class="contact-card reveal">
-            <form class="form" data-mailto data-subject="Solicitud de consulta desde la web" action="mailto:maran.abogados@gmail.com" method="post" enctype="text/plain">
-              <div class="form__row">
-                <div class="field">
-                  <label for="k-nombre">Nombre *</label>
-                  <input id="k-nombre" name="nombre" data-label="Nombre" type="text" autocomplete="name" required>
-                </div>
-                <div class="field">
-                  <label for="k-telefono">Teléfono *</label>
-                  <input id="k-telefono" name="telefono" data-label="Teléfono" type="tel" autocomplete="tel" required>
-                </div>
-              </div>
-              <div class="field">
-                <label for="k-area">Área de su consulta</label>
-                <select id="k-area" name="area" data-label="Área">
-                  <option value="Sin especificar">Seleccione una opción</option>
-                  <option>Derecho Civil</option>
-                  <option>Derecho Bancario</option>
-                  <option>Derecho de Familia</option>
-                  <option>Responsabilidad Civil</option>
-                  <option>Derecho Penal</option>
-                  <option>Extranjería</option>
-                  <option>Otra</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="k-mensaje">Mensaje *</label>
-                <textarea id="k-mensaje" name="mensaje" data-label="Mensaje" required></textarea>
-              </div>
-              <label class="consent">
-                <input type="checkbox" name="consentimiento" required>
-                <span>Acepto que estos datos se almacenen y procesen con el fin de establecer contacto, conforme a la <a href="privacidad.html">política de privacidad</a>. Soy consciente de que puedo revocar mi consentimiento en cualquier momento. *</span>
-              </label>
-              <p class="form__note">* Campos obligatorios. Al enviar se abrirá su aplicación de correo con el mensaje preparado.</p>
-              <div><button class="btn" type="submit">Enviar solicitud <span class="arrow" aria-hidden="true">→</span></button></div>
-              <p class="form__status" data-status role="status" aria-live="polite"></p>
-            </form>
+            <dl class="contact-list" style="margin-top:0">
+              <div><dt>Teléfono</dt><dd><a href="tel:+34624566690">+34 624 566 690</a></dd></div>
+              <div><dt>Correo electrónico</dt><dd><a href="mailto:maran.abogados@gmail.com">maran.abogados@gmail.com</a></dd></div>
+            </dl>
+            <div class="hero__actions">
+              <a class="btn" href="tel:+34624566690">Llamar <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn--ghost" href="mailto:maran.abogados@gmail.com?subject=Solicitud%20de%20consulta">Escribir un correo</a>
+            </div>
           </div>
         </div>
       </div>
@@ -150,7 +117,7 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="assets/img/emblema-maran-claro.png" alt="" width="462" height="480" loading="lazy">
+          <img src="assets/img/emblema-maran-claro.webp" alt="" width="462" height="480" loading="lazy">
           <span class="brand__text">
             <span class="brand__name">MARAN</span>
             <span class="brand__sub">ABOGADOS</span>

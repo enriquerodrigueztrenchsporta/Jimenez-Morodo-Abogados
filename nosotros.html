@@ -12,7 +12,7 @@
   <meta property="og:title" content="Sobre nosotros · Maran Abogados">
   <meta property="og:description" content="La historia, la misión y los valores de Maran Abogados: integridad, compromiso y respeto en la defensa jurídica de nuestros clientes.">
   <meta property="og:locale" content="es_ES">
-  <link rel="icon" type="image/png" href="assets/img/emblema-maran.png">
+  <link rel="icon" type="image/webp" href="assets/img/favicon.webp">
   <link rel="preload" href="assets/fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css?v=20261013">
@@ -40,7 +40,7 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="index.html" aria-label="Maran Abogados — inicio">
-        <img class="brand__mark" src="assets/img/emblema-maran.png" alt="" width="462" height="480">
+        <img class="brand__mark" src="assets/img/emblema-maran.webp" alt="" width="462" height="480">
         <span class="brand__text" aria-hidden="true">
           <span class="brand__name">MARAN</span>
           <span class="brand__sub">ABOGADOS</span>
@@ -91,6 +91,15 @@
       </div>
     </section>
 
+    <div class="container" style="margin-top:clamp(2.5rem,5vw,4rem)">
+      <figure class="figure page-figure clip-reveal">
+        <div class="figure__frame" data-parallax>
+          <img src="assets/img/confianza.webp" alt="Dos personas se dan la mano sobre una mesa de reuniones" width="960" height="640" loading="eager">
+        </div>
+        <figcaption><span>Defensa profesional y ética.</span><span class="credit">Foto: Kristin Hardwick</span></figcaption>
+      </figure>
+    </div>
+
     <section class="section" aria-labelledby="valores-title">
       <div class="container">
         <div class="intro-grid">
@@ -124,33 +133,6 @@
       </div>
     </section>
 
-    <section class="section section--tint" aria-labelledby="personas-title">
-      <div class="container">
-        <div class="commit-grid">
-          <div>
-            <p class="kicker reveal">Las personas primero</p>
-            <h2 class="display-m reveal" id="personas-title" style="margin-top:1.2rem;margin-bottom:2rem">Detrás de cada procedimiento hay una persona</h2>
-            <hr class="rule" data-rule>
-            <div class="columns columns--2 reveal" style="margin-top:2rem">
-              <p class="dropcap">Nuestro despacho ofrece un servicio jurídico basado en la cercanía, la transparencia y la excelencia técnica, acompañando al cliente desde la primera consulta hasta la resolución definitiva de su asunto.</p>
-              <p>Cada caso es diferente. Por ello estudiamos detenidamente todas las circunstancias antes de diseñar la estrategia jurídica más adecuada, manteniendo siempre una comunicación directa y constante con nuestros clientes.</p>
-            </div>
-            <div class="pending-block reveal" style="margin-top:2.5rem">
-              <strong>[PENDIENTE]</strong> Historia del despacho, presentación del equipo y datos de colegiación de los abogados (colegio profesional y número de colegiado). El boceto de Ionos no incluye esta información.
-            </div>
-          </div>
-          <aside class="commit-aside">
-            <figure class="figure commit-figure reveal">
-              <div class="figure__frame" data-parallax>
-                <img src="assets/img/confianza.jpg" alt="Dos personas se dan la mano sobre una mesa de reuniones" width="960" height="640" loading="lazy" decoding="async">
-              </div>
-              <figcaption><span>Cercanía desde la primera consulta.</span><span class="credit">Foto: Kristin Hardwick</span></figcaption>
-            </figure>
-          </aside>
-        </div>
-      </div>
-    </section>
-
     <section class="section section--tint" id="consulta" aria-labelledby="consulta-title">
       <div class="container">
         <div class="contact-grid">
@@ -158,35 +140,16 @@
             <p class="kicker reveal">Primera consulta</p>
             <h2 class="display-l reveal" id="consulta-title" style="margin-top:1.2rem">Solicita una consulta</h2>
             <p class="lede reveal" style="margin-top:1.4rem">Consulte con nuestro equipo para recibir una asesoría legal especializada.</p>
-            <dl class="contact-list reveal">
+          </div>
+          <div class="contact-card reveal">
+            <dl class="contact-list" style="margin-top:0">
               <div><dt>Teléfono</dt><dd><a href="tel:+34624566690">+34 624 566 690</a></dd></div>
               <div><dt>Correo electrónico</dt><dd><a href="mailto:maran.abogados@gmail.com">maran.abogados@gmail.com</a></dd></div>
             </dl>
-          </div>
-          <div class="contact-card reveal">
-            <form class="form" data-mailto data-subject="Solicitud de consulta desde la web" action="mailto:maran.abogados@gmail.com" method="post" enctype="text/plain">
-              <div class="form__row">
-                <div class="field">
-                  <label for="c-nombre">Nombre *</label>
-                  <input id="c-nombre" name="nombre" data-label="Nombre" type="text" autocomplete="name" required>
-                </div>
-                <div class="field">
-                  <label for="c-telefono">Teléfono *</label>
-                  <input id="c-telefono" name="telefono" data-label="Teléfono" type="tel" autocomplete="tel" required>
-                </div>
-              </div>
-              <div class="field">
-                <label for="c-mensaje">Mensaje *</label>
-                <textarea id="c-mensaje" name="mensaje" data-label="Mensaje" required></textarea>
-              </div>
-              <label class="consent">
-                <input type="checkbox" name="consentimiento" required>
-                <span>Acepto que estos datos se almacenen y procesen con el fin de establecer contacto, conforme a la <a href="privacidad.html">política de privacidad</a>. Soy consciente de que puedo revocar mi consentimiento en cualquier momento. *</span>
-              </label>
-              <p class="form__note">* Campos obligatorios. Al enviar se abrirá su aplicación de correo con el mensaje preparado.</p>
-              <div><button class="btn" type="submit">Enviar solicitud <span class="arrow" aria-hidden="true">→</span></button></div>
-              <p class="form__status" data-status role="status" aria-live="polite"></p>
-            </form>
+            <div class="hero__actions">
+              <a class="btn" href="tel:+34624566690">Llamar <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn--ghost" href="mailto:maran.abogados@gmail.com?subject=Solicitud%20de%20consulta">Escribir un correo</a>
+            </div>
           </div>
         </div>
       </div>
@@ -198,7 +161,7 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="assets/img/emblema-maran-claro.png" alt="" width="462" height="480" loading="lazy">
+          <img src="assets/img/emblema-maran-claro.webp" alt="" width="462" height="480" loading="lazy">
           <span class="brand__text">
             <span class="brand__name">MARAN</span>
             <span class="brand__sub">ABOGADOS</span>

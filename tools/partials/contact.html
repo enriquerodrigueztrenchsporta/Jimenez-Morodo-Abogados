@@ -5,35 +5,16 @@
             <p class="kicker reveal">Primera consulta</p>
             <h2 class="display-l reveal" id="consulta-title" style="margin-top:1.2rem">Solicita una consulta</h2>
             <p class="lede reveal" style="margin-top:1.4rem">Consulte con nuestro equipo para recibir una asesoría legal especializada.</p>
-            <dl class="contact-list reveal">
+          </div>
+          <div class="contact-card reveal">
+            <dl class="contact-list" style="margin-top:0">
               <div><dt>Teléfono</dt><dd><a href="tel:+34624566690">+34 624 566 690</a></dd></div>
               <div><dt>Correo electrónico</dt><dd><a href="mailto:maran.abogados@gmail.com">maran.abogados@gmail.com</a></dd></div>
             </dl>
-          </div>
-          <div class="contact-card reveal">
-            <form class="form" data-mailto data-subject="Solicitud de consulta desde la web" action="mailto:maran.abogados@gmail.com" method="post" enctype="text/plain">
-              <div class="form__row">
-                <div class="field">
-                  <label for="c-nombre">Nombre *</label>
-                  <input id="c-nombre" name="nombre" data-label="Nombre" type="text" autocomplete="name" required>
-                </div>
-                <div class="field">
-                  <label for="c-telefono">Teléfono *</label>
-                  <input id="c-telefono" name="telefono" data-label="Teléfono" type="tel" autocomplete="tel" required>
-                </div>
-              </div>
-              <div class="field">
-                <label for="c-mensaje">Mensaje *</label>
-                <textarea id="c-mensaje" name="mensaje" data-label="Mensaje" required></textarea>
-              </div>
-              <label class="consent">
-                <input type="checkbox" name="consentimiento" required>
-                <span>Acepto que estos datos se almacenen y procesen con el fin de establecer contacto, conforme a la <a href="privacidad.html">política de privacidad</a>. Soy consciente de que puedo revocar mi consentimiento en cualquier momento. *</span>
-              </label>
-              <p class="form__note">* Campos obligatorios. Al enviar se abrirá su aplicación de correo con el mensaje preparado.</p>
-              <div><button class="btn" type="submit">Enviar solicitud <span class="arrow" aria-hidden="true">→</span></button></div>
-              <p class="form__status" data-status role="status" aria-live="polite"></p>
-            </form>
+            <div class="hero__actions">
+              <a class="btn" href="tel:+34624566690">Llamar <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn--ghost" href="mailto:maran.abogados@gmail.com?subject=Solicitud%20de%20consulta">Escribir un correo</a>
+            </div>
           </div>
         </div>
       </div>
