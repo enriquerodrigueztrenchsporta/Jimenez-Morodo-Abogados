@@ -43,7 +43,7 @@ Los estilos están en `styles.css`, el comportamiento en `main.js` y los datos d
 
 `contacto.html#formulario` tiene un formulario con Nombre, Asunto y Problema. **No envía datos a
 ningún servidor**: al pulsar «Enviar» abre la aplicación de correo del visitante con el mensaje
-preparado para `maran.abogados@gmail.com`. Así la web no almacena datos ni depende de servicios de
+preparado para `info@maranabogados.es`. Así la web no almacena datos ni depende de servicios de
 terceros. Los botones «Ponte en contacto con nosotros» llevan a ese formulario; desde el blog
 rellenan el asunto automáticamente (`contacto.html?asunto=...`).
 

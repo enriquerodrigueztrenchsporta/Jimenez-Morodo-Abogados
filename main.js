@@ -188,7 +188,7 @@
     var form = $("[data-contact-form]");
     if (!form || form.getAttribute("data-bound")) return;
     form.setAttribute("data-bound", "1");
-    var to = contact.email || "maran.abogados@gmail.com";
+    var to = contact.email || "info@maranabogados.es";
     var nombre = form.querySelector("[name=nombre]");
     var asunto = form.querySelector("[name=asunto]");
     var problema = form.querySelector("[name=problema]");
