@@ -42,14 +42,11 @@ Los estilos están en `styles.css`, el comportamiento en `main.js` y los datos d
 La web no tiene formularios (previstos para una fase posterior) ni mapa, porque el despacho no
 tiene oficina física. El contacto se hace por teléfono (`tel:`) o por correo (`mailto:`).
 
-## Contenido pendiente
+## Páginas legales
 
-Está marcado en la web con recuadros amarillos `[PENDIENTE]`, solo en las páginas legales:
-
-- Datos del titular para el aviso legal y la política de privacidad: nombre o razón social, NIF,
-  domicilio a efectos de notificaciones, colegio y número de colegiado, plazos de conservación y
-  proveedor de correo.
-- Los textos legales son borradores y debe revisarlos el despacho.
+La web es meramente informativa. Por decisión del despacho, el aviso legal y la política de
+privacidad no incluyen nombre o razón social, NIF, domicilio ni datos de colegiación; solo el
+nombre comercial, el correo y el teléfono.
 
 ## Ver la web (repositorio privado)
 
