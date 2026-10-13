@@ -60,7 +60,7 @@ con `python tools/build.py` para que el parámetro `?v=` cambie y los navegadore
 
 - **GitHub Pages (actual):** rama `main`, raíz. No admite `.htaccess`; la caché se controla con
   el parámetro `?v=` de los recursos.
-- **Hostinger u otro hosting Apache:** sube todo el contenido de la carpeta, salvo `tools/` y `.devcontainer/`. El
+- **Hostinger u otro hosting Apache:** sube todo el contenido de la carpeta, salvo `tools/`. El
   `.htaccess` incluido controla la caché. Retira la etiqueta `noindex` cuando la web pase a
   producción.
 
