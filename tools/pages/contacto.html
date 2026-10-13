@@ -4,29 +4,60 @@
           <p class="kicker">Contacto</p>
           <h1 class="display-l" id="page-title" data-split>Consulte con nuestro<br>equipo para recibir<br>una asesoría <em>especializada</em></h1>
           <div class="page-head__aside reveal" data-delay="0.4">
-            <p class="deck">Solicita una consulta por teléfono o por correo electrónico.</p>
+            <p class="deck">Solicita una consulta a través de nuestro formulario.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="consulta-title">
+    <section class="section" id="formulario" aria-labelledby="consulta-title">
       <div class="container">
         <div class="contact-grid">
           <div>
             <p class="kicker reveal">Solicita una consulta</p>
             <h2 class="display-m reveal" id="consulta-title" style="margin-top:1.2rem">Estamos a su disposición</h2>
-            <p class="lede reveal" style="margin-top:1.4rem">Para consultas legales, gestión de casos, o solicitar una cita con nuestros especialistas en derecho civil, penal y extranjería, puede contactarnos por teléfono o por correo electrónico. Estamos a su disposición para brindarle el mejor servicio jurídico.</p>
-          </div>
-          <div class="contact-card reveal">
-            <dl class="contact-list" style="margin-top:0">
+            <p class="lede reveal" style="margin-top:1.4rem">Para consultas legales, gestión de casos, o solicitar una cita con nuestros especialistas en derecho civil, penal y extranjería, puede contactarnos mediante nuestro formulario o por teléfono. Estamos a su disposición para brindarle el mejor servicio jurídico.</p>
+            <dl class="contact-list reveal">
               <div><dt>Teléfono</dt><dd><a href="tel:+34624566690">+34 624 566 690</a></dd></div>
               <div><dt>Correo electrónico</dt><dd><a href="mailto:maran.abogados@gmail.com">maran.abogados@gmail.com</a></dd></div>
             </dl>
-            <div class="hero__actions">
-              <a class="btn" href="tel:+34624566690">Llamar <span class="arrow" aria-hidden="true">→</span></a>
-              <a class="btn btn--ghost" href="mailto:maran.abogados@gmail.com?subject=Solicitud%20de%20consulta">Escribir un correo</a>
-            </div>
+          </div>
+          <div class="contact-card">
+            <form class="form" data-contact-form action="mailto:maran.abogados@gmail.com" method="post" enctype="text/plain" aria-describedby="form-info">
+              <div class="field">
+                <label for="f-nombre">Nombre *</label>
+                <input id="f-nombre" name="nombre" type="text" autocomplete="name" maxlength="100" required>
+              </div>
+              <div class="field">
+                <label for="f-asunto">Asunto *</label>
+                <input id="f-asunto" name="asunto" type="text" maxlength="150" required>
+              </div>
+              <div class="field">
+                <label for="f-problema">Problema *</label>
+                <textarea id="f-problema" name="problema" maxlength="800" required aria-describedby="f-problema-ayuda"></textarea>
+                <p class="form__note" id="f-problema-ayuda">Describa brevemente su situación (máximo 800 caracteres). Le recomendamos no incluir en este primer contacto datos de salud ni otros datos especialmente sensibles.</p>
+              </div>
+
+              <div class="form__info" id="form-info">
+                <p><strong>Información básica sobre protección de datos</strong></p>
+                <ul>
+                  <li><strong>Responsable:</strong> Maran Abogados.</li>
+                  <li><strong>Finalidad:</strong> atender y responder a su consulta.</li>
+                  <li><strong>Legitimación:</strong> su consentimiento.</li>
+                  <li><strong>Destinatarios:</strong> no se ceden datos a terceros salvo obligación legal. El correo electrónico lo presta Google (EE.&nbsp;UU.).</li>
+                  <li><strong>Derechos:</strong> acceso, rectificación, supresión y demás derechos, escribiendo a maran.abogados@gmail.com.</li>
+                  <li><strong>Más información:</strong> <a href="privacidad.html">Política de privacidad</a>.</li>
+                </ul>
+              </div>
+
+              <label class="consent">
+                <input type="checkbox" name="consentimiento" required>
+                <span>He leído la <a href="privacidad.html">Política de privacidad</a> y los <a href="terminos.html">Términos y condiciones</a>, y consiento el tratamiento de mis datos para atender mi consulta. *</span>
+              </label>
+              <p class="form__note">* Campos obligatorios. Al pulsar «Enviar» se abrirá su aplicación de correo con el mensaje preparado; la consulta llega al despacho cuando usted envía ese correo. Esta web no almacena sus datos.</p>
+              <div><button class="btn" type="submit">Enviar <span class="arrow" aria-hidden="true">→</span></button></div>
+              <p class="form__status" data-status role="status" aria-live="polite"></p>
+            </form>
           </div>
         </div>
       </div>

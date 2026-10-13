@@ -2,7 +2,7 @@
   "use strict";
 
   var data = window.__BRAND__ || {};
-  var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var contact = data.contact || {};
 
   var $ = function (sel, scope) { return (scope || document).querySelector(sel); };
   var $$ = function (sel, scope) { return Array.prototype.slice.call((scope || document).querySelectorAll(sel)); };
@@ -11,20 +11,6 @@
   var root = document.documentElement;
   root.classList.remove("no-js");
   root.classList.add("js");
-
-  /* ---------- Splash (doble red de seguridad: CSS 4,5 s + JS) ---------- */
-  function initSplash() {
-    var splash = $("[data-splash]");
-    if (!splash) return;
-    var seen = false;
-    try { seen = sessionStorage.getItem("maran-splash") === "1"; } catch (_) {}
-    var hide = function () { splash.classList.add("is-out"); };
-    if (seen) { hide(); return; }
-    try { sessionStorage.setItem("maran-splash", "1"); } catch (_) {}
-    if (document.readyState === "complete") setTimeout(hide, 900);
-    else window.addEventListener("load", function () { setTimeout(hide, 700); });
-    setTimeout(hide, 3200);
-  }
 
   /* ---------- Cabecera: sombra al hacer scroll + barra de progreso ---------- */
   function initHeader() {
@@ -74,7 +60,7 @@
 
   /* ---------- Revelados al hacer scroll (threshold bajo + red de 6 s) ---------- */
   function initReveals() {
-    var items = $$(".reveal, [data-rule], .clip-reveal");
+    var items = $$(".reveal, [data-rule]");
     if (!items.length) return;
     if (!("IntersectionObserver" in window)) {
       items.forEach(function (el) { el.classList.add("is-visible"); });
@@ -135,21 +121,7 @@
         duration: 1.25,
         ease: "expo.out",
         stagger: 0.11,
-        delay: document.querySelector("[data-splash]:not(.is-out)") ? 0.9 : 0.15
-      });
-    });
-  }
-
-  /* ---------- Parallax suave de imágenes (≤ 40 px) ---------- */
-  function initParallax() {
-    if (!window.gsap || !window.ScrollTrigger) return;
-    $$("[data-parallax]").forEach(function (frame) {
-      var img = frame.querySelector("img");
-      if (!img) return;
-      gsap.fromTo(img, { yPercent: -4 }, {
-        yPercent: 4,
-        ease: "none",
-        scrollTrigger: { trigger: frame, start: "top bottom", end: "bottom top", scrub: 0.6 }
+        delay: 0.15
       });
     });
   }
@@ -209,23 +181,71 @@
     Object.keys(map).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
   }
 
+  /* ---------- Formulario de contacto → correo electrónico ----------
+     No envía datos a ningún servidor: prepara el mensaje en la aplicación de
+     correo del visitante, dirigido al despacho. */
+  function initContactForm() {
+    var form = $("[data-contact-form]");
+    if (!form || form.getAttribute("data-bound")) return;
+    form.setAttribute("data-bound", "1");
+    var to = contact.email || "maran.abogados@gmail.com";
+    var nombre = form.querySelector("[name=nombre]");
+    var asunto = form.querySelector("[name=asunto]");
+    var problema = form.querySelector("[name=problema]");
+    var status = form.querySelector("[data-status]");
+
+    // Asunto sugerido desde otras páginas (contacto.html?asunto=...)
+    try {
+      var sugerido = new URLSearchParams(window.location.search).get("asunto");
+      if (sugerido && asunto && !asunto.value) asunto.value = sugerido.slice(0, 150);
+    } catch (_) {}
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      var subject = "Consulta web: " + asunto.value.trim();
+      var body = [
+        "Nombre: " + nombre.value.trim(),
+        "Asunto: " + asunto.value.trim(),
+        "",
+        "Problema:",
+        problema.value.trim(),
+        "",
+        "-- Enviado desde el formulario de la web de Maran Abogados. El remitente ha leído y aceptado la política de privacidad."
+      ].join("\r\n");
+      var href = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      // Algunas aplicaciones de correo no admiten enlaces mailto de más de ~2.000 caracteres
+      if (href.length > 1900) {
+        if (status) {
+          status.textContent = "El mensaje es demasiado largo para abrirlo en su aplicación de correo. " +
+            "Acórtelo o escríbanos directamente a " + to + ".";
+        }
+        return;
+      }
+      if (status) {
+        status.textContent = "Se ha abierto su aplicación de correo con el mensaje preparado: revíselo y pulse «Enviar». " +
+          "Si no se abre, escríbanos directamente a " + to + ".";
+      }
+      window.location.href = href;
+    });
+  }
+
   /* ---------- Año del pie ---------- */
   function initYear() {
     $$("[data-year]").forEach(function (el) { el.textContent = String(new Date().getFullYear()); });
   }
 
   function boot() {
-    safe(initSplash, "initSplash");
     safe(initHeader, "initHeader");
     safe(initMenu, "initMenu");
     safe(initReveals, "initReveals");
     safe(initCounters, "initCounters");
     safe(initPracticeNav, "initPracticeNav");
+    safe(initContactForm, "initContactForm");
     safe(initYear, "initYear");
     if (window.gsap && window.ScrollTrigger) {
       try { gsap.registerPlugin(ScrollTrigger); } catch (_) {}
       safe(initHeroTitle, "initHeroTitle");
-      if (!reduced) safe(initParallax, "initParallax");
     }
     root.classList.add("is-ready");
   }

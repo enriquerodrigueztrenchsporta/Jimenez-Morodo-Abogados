@@ -16,9 +16,6 @@
   <link rel="preload" href="assets/fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css?v={{V}}">
-  <script>
-    try { if (sessionStorage.getItem("maran-splash") === "1") document.documentElement.classList.add("splash-seen"); } catch (e) {}
-  </script>
   <script defer src="lib/gsap.min.js?v={{V}}"></script>
   <script defer src="lib/ScrollTrigger.min.js?v={{V}}"></script>
   <script defer src="lib/manifest.js?v={{V}}"></script>
@@ -26,7 +23,6 @@
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
-{{SPLASH}}
   <div class="progress" data-progress aria-hidden="true"></div>
 {{HEADER}}
   <main id="contenido">

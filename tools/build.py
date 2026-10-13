@@ -21,37 +21,43 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 TOOLS = ROOT / "tools"
 
-# clave de navegación, archivo de salida, título, descripción, ¿splash?
+# clave de navegación, archivo de salida, título, descripción
 PAGES = [
     ("inicio", "index.html",
      "Maran Abogados · Derecho Civil, Penal y Extranjería",
      "Despacho de abogados especializado en Derecho Civil, Derecho Penal y Extranjería. "
-     "Asesoramiento y defensa jurídica con atención personalizada.", True),
+     "Asesoramiento y defensa jurídica con atención personalizada."),
     ("nosotros", "nosotros.html",
      "Sobre nosotros · Maran Abogados",
      "La historia, la misión y los valores de Maran Abogados: integridad, compromiso y respeto "
-     "en la defensa jurídica de nuestros clientes.", False),
+     "en la defensa jurídica de nuestros clientes."),
     ("servicios", "servicios.html",
      "Servicios jurídicos · Maran Abogados",
      "Áreas de práctica de Maran Abogados: Derecho Civil, Responsabilidad Civil, Derecho Penal "
-     "y Extranjería.", False),
+     "y Extranjería."),
     ("blog", "blog.html",
      "Blog · Maran Abogados",
      "Tarjetas revolving, préstamos e hipotecas, deudas que no puedes pagar: casos frecuentes "
-     "en los que Maran Abogados puede ayudarte.", False),
+     "en los que Maran Abogados puede ayudarte."),
     ("contacto", "contacto.html",
      "Contacto · Maran Abogados",
      "Solicita una consulta con Maran Abogados por teléfono, correo electrónico o mediante "
-     "nuestro formulario.", False),
+     "nuestro formulario."),
     ("aviso", "aviso-legal.html",
      "Aviso legal · Maran Abogados",
-     "Aviso legal e información del titular del sitio web de Maran Abogados.", False),
+     "Aviso legal e información del titular del sitio web de Maran Abogados."),
     ("privacidad", "privacidad.html",
      "Política de privacidad · Maran Abogados",
-     "Política de privacidad y protección de datos del sitio web de Maran Abogados.", False),
+     "Política de privacidad y protección de datos del sitio web de Maran Abogados."),
+    ("terminos", "terminos.html",
+     "Términos y condiciones · Maran Abogados",
+     "Términos y condiciones de uso del sitio web de Maran Abogados."),
+    ("cookies", "cookies.html",
+     "Política de cookies · Maran Abogados",
+     "Política de cookies del sitio web de Maran Abogados."),
     ("404", "404.html",
      "Página no encontrada · Maran Abogados",
-     "La página solicitada no existe.", False),
+     "La página solicitada no existe."),
 ]
 
 NAV = [
@@ -85,9 +91,8 @@ def main():
     header = read(TOOLS / "partials" / "header.html")
     footer = read(TOOLS / "partials" / "footer.html")
     contact = read(TOOLS / "partials" / "contact.html")
-    splash = read(TOOLS / "partials" / "splash.html")
 
-    for key, filename, title, description, with_splash in PAGES:
+    for key, filename, title, description in PAGES:
         body = read(TOOLS / "pages" / filename)
         body = body.replace("{{CONTACT}}", contact)
         head = header.replace(
@@ -99,7 +104,6 @@ def main():
         html = (layout
                 .replace("{{TITLE}}", title)
                 .replace("{{DESCRIPTION}}", description)
-                .replace("{{SPLASH}}", splash if with_splash else "")
                 .replace("{{HEADER}}", head)
                 .replace("{{MAIN}}", body)
                 .replace("{{FOOTER}}", footer)

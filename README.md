@@ -18,6 +18,8 @@ se revisa.
 | `contacto.html` | Contacto |
 | `aviso-legal.html` | Aviso legal y créditos fotográficos |
 | `privacidad.html` | Política de privacidad |
+| `terminos.html` | Términos y condiciones |
+| `cookies.html` | Política de cookies |
 | `404.html` | Página no encontrada |
 
 ## Cómo editar
@@ -37,10 +39,15 @@ Las páginas de la raíz se **generan**. No las edites a mano:
 Los estilos están en `styles.css`, el comportamiento en `main.js` y los datos de la marca en
 `lib/manifest.js`.
 
-## Contacto
+## Contacto y formulario
 
-La web no tiene formularios (previstos para una fase posterior) ni mapa, porque el despacho no
-tiene oficina física. El contacto se hace por teléfono (`tel:`) o por correo (`mailto:`).
+`contacto.html#formulario` tiene un formulario con Nombre, Asunto y Problema. **No envía datos a
+ningún servidor**: al pulsar «Enviar» abre la aplicación de correo del visitante con el mensaje
+preparado para `maran.abogados@gmail.com`. Así la web no almacena datos ni depende de servicios de
+terceros. Los botones «Ponte en contacto con nosotros» llevan a ese formulario; desde el blog
+rellenan el asunto automáticamente (`contacto.html?asunto=...`).
+
+La web no usa cookies ni almacenamiento en el navegador, y no tiene mapa.
 
 ## Páginas legales
 
