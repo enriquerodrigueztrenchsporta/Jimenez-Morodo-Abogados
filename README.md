@@ -48,24 +48,18 @@ La web es meramente informativa. Por decisión del despacho, el aviso legal y la
 privacidad no incluyen nombre o razón social, NIF, domicilio ni datos de colegiación; solo el
 nombre comercial, el correo y el teléfono.
 
-## Ver la web (repositorio privado)
+## Ver la web
 
-El repositorio es privado y el plan gratuito de GitHub no permite GitHub Pages en repositorios
-privados. Para verla:
+Publicada con GitHub Pages desde la rama `main`:
+<https://enriquerodrigueztrenchsporta.github.io/Maran-Abogados/>
 
-- **GitHub Codespaces (recomendado):** abre
-  <https://codespaces.new/enriquerodrigueztrenchsporta/Maran-Abogados?quickstart=1> y pulsa
-  «Create codespace». Al arrancar se abre la web automáticamente en una pestaña nueva. Si no
-  aparece, ve a la pestaña «Ports» y abre el puerto 8765. La dirección es privada: solo funciona
-  con tu sesión de GitHub. Cuando termines, detén el Codespace para no consumir horas.
-- **En local:** descarga el repositorio («Code → Download ZIP»), descomprímelo y abre `index.html`
-  con doble clic.
+Cada `git push` a `main` vuelve a publicarla en un par de minutos. Si cambias CSS o JS, regenera
+con `python tools/build.py` para que el parámetro `?v=` cambie y los navegadores no usen la caché.
 
 ## Publicación
 
-- **GitHub Pages:** requiere un repositorio público o un plan de pago, y la web de Pages es
-  accesible para cualquiera que tenga el enlace. Se publicaría desde la rama `main` (raíz). No
-  admite `.htaccess`; la caché se controla con el parámetro `?v=` de los recursos.
+- **GitHub Pages (actual):** rama `main`, raíz. No admite `.htaccess`; la caché se controla con
+  el parámetro `?v=` de los recursos.
 - **Hostinger u otro hosting Apache:** sube todo el contenido de la carpeta, salvo `tools/` y `.devcontainer/`. El
   `.htaccess` incluido controla la caché. Retira la etiqueta `noindex` cuando la web pase a
   producción.
