@@ -1,0 +1,10 @@
+# Originales del cliente (no se publican)
+assets/photos/
+
+# Python
+__pycache__/
+*.pyc
+
+# Sistema
+.DS_Store
+Thumbs.db

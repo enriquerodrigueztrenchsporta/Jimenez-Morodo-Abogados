@@ -1,0 +1,79 @@
+{
+  "justicia": {
+    "src": "assets/img/justicia.jpg",
+    "title": "Close-up of Lady Justice statue holding scales, symbolizing justice and fairness",
+    "creator": "DP Singh Bhullar",
+    "creator_url": "https://commons.wikimedia.org/wiki/User:Bhullargraphic",
+    "license": "by-sa",
+    "license_version": "4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "foreign_landing_url": "https://commons.wikimedia.org/w/index.php?curid=196973578",
+    "source": "wikimedia"
+  },
+  "jurisprudencia": {
+    "src": "assets/img/jurisprudencia.jpg",
+    "title": "Leather Bound Books",
+    "creator": "geishaboy500",
+    "creator_url": "https://www.flickr.com/photos/49503154413@N01",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/49503154413@N01/2694667633",
+    "source": "flickr"
+  },
+  "confianza": {
+    "src": "assets/img/confianza.jpg",
+    "title": "Work Business",
+    "creator": "Kristin Hardwick",
+    "creator_url": "https://www.kristinhardwick.com",
+    "license": "cc0",
+    "license_version": "1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "foreign_landing_url": "https://stocksnap.io/photo/work-business-J5LXKNDREC",
+    "source": "stocksnap"
+  },
+  "sala": {
+    "src": "assets/img/sala.jpg",
+    "title": "Osgoode Hall Level 2 Courtroom Interior 2023",
+    "creator": "Canmenwalker",
+    "creator_url": "https://commons.wikimedia.org/w/index.php?title=User:Canmenwalker&action=edit&redlink=1",
+    "license": "by",
+    "license_version": "4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "foreign_landing_url": "https://commons.wikimedia.org/w/index.php?curid=132640795",
+    "source": "wikimedia"
+  },
+  "revolving": {
+    "src": "assets/img/revolving.jpg",
+    "title": "Calculator and Money",
+    "creator": "Images_of_Money",
+    "creator_url": "https://www.flickr.com/photos/59937401@N07",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/59937401@N07/5474825330",
+    "source": "flickr"
+  },
+  "hipoteca": {
+    "src": "assets/img/hipoteca.jpg",
+    "title": "Property Law - Gavel and Block and House Keys",
+    "creator": "advokatsmart.no",
+    "creator_url": null,
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://commons.wikimedia.org/w/index.php?curid=123024286",
+    "source": "wikimedia"
+  },
+  "segunda-oportunidad": {
+    "src": "assets/img/segunda-oportunidad.jpg",
+    "title": "Walking on Water",
+    "creator": "Kevin Krejci",
+    "creator_url": "https://www.flickr.com/photos/48889057888@N01",
+    "license": "by",
+    "license_version": "2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "foreign_landing_url": "https://www.flickr.com/photos/48889057888@N01/290255700",
+    "source": "flickr"
+  }
+}
