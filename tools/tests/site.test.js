@@ -39,20 +39,30 @@ test("portada: carga los módulos del cuestionario en orden y antes de main.js",
   assert.deepEqual([...order].sort((a, b) => a - b), order);
 });
 
-test("servicios: seis áreas en portada y la nueva área en servicios.html, sin duplicados", () => {
+test("servicios: seis áreas en portada, la LSO la primera y sin duplicados", () => {
   const index = read("index.html");
   const nums = [...index.matchAll(/<span class="service__num">([IVX]+)\.<\/span>/g)].map((m) => m[1]);
   assert.deepEqual(nums, ["I", "II", "III", "IV", "V", "VI"]);
-  assert.equal((index.match(/<h3 class="service__title">Ley de la Segunda Oportunidad<\/h3>/g) || []).length, 1);
+  const titles = [...index.matchAll(/<h3 class="service__title">([^<]+)<\/h3>/g)].map((m) => m[1]);
+  assert.equal(titles[0], "Ley de la Segunda Oportunidad");
+  assert.equal(titles.filter((x) => x === "Ley de la Segunda Oportunidad").length, 1);
   const serv = read("servicios.html");
   assert.equal((serv.match(/<article class="practice" id="segunda-oportunidad"/g) || []).length, 1);
-  assert.match(serv, /<a href="#segunda-oportunidad"><span>V\.<\/span> Ley de la Segunda Oportunidad<\/a>/);
+  const order = [...serv.matchAll(/<article class="practice" id="([^"]+)"/g)].map((m) => m[1]);
+  assert.deepEqual(order, ["segunda-oportunidad", "derecho-civil", "responsabilidad-civil", "derecho-penal", "extranjeria"]);
+  assert.match(serv, /<a href="#segunda-oportunidad"><span>I\.<\/span> Ley de la Segunda Oportunidad<\/a>/);
+  const kickers = [...serv.matchAll(/<p class="kicker reveal">([IVX]+)\. Área<\/p>/g)].map((m) => m[1]);
+  assert.deepEqual(kickers, ["I", "II", "III", "IV", "V"]);
 });
 
-test("el menú principal no incluye la Ley de la Segunda Oportunidad", () => {
+test("menú: cinco secciones con desplegable; la LSO solo como apartado de Servicios", () => {
   pages.forEach((f) => {
-    const nav = read(f).match(/<nav class="nav"[\s\S]*?<\/nav>/);
-    if (nav) assert.doesNotMatch(nav[0], /segunda/i, f);
+    const nav = read(f).match(/<nav class="nav"[\s\S]*?<\/nav>/)[0];
+    const top = [...nav.matchAll(/<li class="nav__item">\s*<a href="([^"]+)"/g)].map((m) => m[1]);
+    assert.deepEqual(top, ["index.html", "nosotros.html", "servicios.html", "blog.html", "contacto.html"], f);
+    assert.equal((nav.match(/class="nav__sub"/g) || []).length, 5, f);
+    const servSub = nav.match(/Apartados de Servicios">([\s\S]*?)<\/ul>/)[1];
+    assert.match(servSub.match(/<a href="([^"]+)"/)[1], /ley-segunda-oportunidad\.html/, f);
   });
 });
 

@@ -83,6 +83,41 @@ NAV = [
     ("contacto", "contacto.html", "Contacto"),
 ]
 
+# Apartados que se despliegan al pasar por encima de cada sección del menú
+# (solo escritorio). Cada enlace debe apuntar a un ancla existente: las
+# pruebas de tools/tests/site.test.js lo comprueban.
+NAV_SUB = {
+    "inicio": [
+        ("index.html#segunda-oportunidad", "Ley de la Segunda Oportunidad"),
+        ("index.html#despacho", "El despacho"),
+        ("index.html#compromiso", "Compromiso"),
+        ("index.html#servicios", "Servicios jurídicos"),
+        ("index.html#consulta", "Solicita una consulta"),
+    ],
+    "nosotros": [
+        ("nosotros.html", "Historia y misión"),
+        ("nosotros.html#valores", "Valores"),
+        ("nosotros.html#consulta", "Solicita una consulta"),
+    ],
+    "servicios": [
+        ("ley-segunda-oportunidad.html", "Ley de la Segunda Oportunidad"),
+        ("servicios.html#derecho-civil", "Derecho Civil"),
+        ("servicios.html#responsabilidad-civil", "Responsabilidad Civil"),
+        ("servicios.html#derecho-penal", "Derecho Penal"),
+        ("servicios.html#extranjeria", "Extranjería"),
+    ],
+    "blog": [
+        ("blog.html#tarjetas-revolving", "Tarjetas revolving"),
+        ("blog.html#prestamos-hipotecas", "Préstamos e hipotecas"),
+        ("blog.html#deudas", "Deudas"),
+    ],
+    "contacto": [
+        ("contacto.html#formulario", "Formulario de contacto"),
+        ("tel:+34624566690", "Teléfono: +34 624 566 690"),
+        ("mailto:info@maranabogados.es", "info@maranabogados.es"),
+    ],
+}
+
 # Scripts adicionales por página (se cargan con defer después de lib/manifest.js)
 LSO_SCRIPTS = ["lso/content.js", "lso/rules.js", "lso/engine.js", "lso/validate.js",
                "lso/submit.js", "lso/quiz.js"]
@@ -103,6 +138,24 @@ def nav_items(active, template):
     for i, (key, href, label) in enumerate(NAV, start=1):
         current = ' aria-current="page"' if key == active else ""
         out.append(template.format(href=href, label=label, current=current, n=f"{i:02d}"))
+    return "\n".join(out)
+
+
+def nav_desktop(active):
+    """Menú de escritorio: cada sección con su lista desplegable de apartados."""
+    out = []
+    for key, href, label in NAV:
+        current = ' aria-current="page"' if key == active else ""
+        sub = NAV_SUB.get(key, [])
+        if not sub:
+            out.append(f'<li><a href="{href}"{current}>{label}</a></li>')
+            continue
+        links = "\n".join(f'              <li><a href="{h}">{t}</a></li>' for h, t in sub)
+        out.append(
+            f'<li class="nav__item">\n'
+            f'            <a href="{href}"{current}>{label}<span class="nav__caret" aria-hidden="true"></span></a>\n'
+            f'            <ul class="nav__sub" aria-label="Apartados de {label}">\n{links}\n            </ul>\n'
+            f'          </li>')
     return "\n".join(out)
 
 
@@ -205,7 +258,7 @@ def main():
         body = read(TOOLS / "pages" / filename)
         body = body.replace("{{CONTACT}}", contact)
         head = header.replace(
-            "{{NAV}}", nav_items(key, '<li><a href="{href}"{current}>{label}</a></li>')
+            "{{NAV}}", nav_desktop(key)
         ).replace(
             "{{NAV_MOBILE}}",
             nav_items(key, '<li><a class="mobile-menu__link" href="{href}"{current}>{label} <span>{n}</span></a></li>'),

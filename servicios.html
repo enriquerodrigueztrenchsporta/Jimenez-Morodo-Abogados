@@ -17,11 +17,11 @@
   <link rel="icon" type="image/webp" href="assets/img/favicon.webp">
   <link rel="preload" href="assets/fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20261020b">
-  <script defer src="lib/gsap.min.js?v=20261020b"></script>
-  <script defer src="lib/ScrollTrigger.min.js?v=20261020b"></script>
-  <script defer src="lib/manifest.js?v=20261020b"></script>
-  <script defer src="main.js?v=20261020b"></script>
+  <link rel="stylesheet" href="styles.css?v=20261020c">
+  <script defer src="lib/gsap.min.js?v=20261020c"></script>
+  <script defer src="lib/ScrollTrigger.min.js?v=20261020c"></script>
+  <script defer src="lib/manifest.js?v=20261020c"></script>
+  <script defer src="main.js?v=20261020c"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
@@ -46,11 +46,50 @@
       </a>
       <nav class="nav" aria-label="Principal">
         <ul>
-<li><a href="index.html">Inicio</a></li>
-<li><a href="nosotros.html">Sobre Nosotros</a></li>
-<li><a href="servicios.html" aria-current="page">Servicios</a></li>
-<li><a href="blog.html">Blog</a></li>
-<li><a href="contacto.html">Contacto</a></li>
+<li class="nav__item">
+            <a href="index.html">Inicio<span class="nav__caret" aria-hidden="true"></span></a>
+            <ul class="nav__sub" aria-label="Apartados de Inicio">
+              <li><a href="index.html#segunda-oportunidad">Ley de la Segunda Oportunidad</a></li>
+              <li><a href="index.html#despacho">El despacho</a></li>
+              <li><a href="index.html#compromiso">Compromiso</a></li>
+              <li><a href="index.html#servicios">Servicios jurídicos</a></li>
+              <li><a href="index.html#consulta">Solicita una consulta</a></li>
+            </ul>
+          </li>
+<li class="nav__item">
+            <a href="nosotros.html">Sobre Nosotros<span class="nav__caret" aria-hidden="true"></span></a>
+            <ul class="nav__sub" aria-label="Apartados de Sobre Nosotros">
+              <li><a href="nosotros.html">Historia y misión</a></li>
+              <li><a href="nosotros.html#valores">Valores</a></li>
+              <li><a href="nosotros.html#consulta">Solicita una consulta</a></li>
+            </ul>
+          </li>
+<li class="nav__item">
+            <a href="servicios.html" aria-current="page">Servicios<span class="nav__caret" aria-hidden="true"></span></a>
+            <ul class="nav__sub" aria-label="Apartados de Servicios">
+              <li><a href="ley-segunda-oportunidad.html">Ley de la Segunda Oportunidad</a></li>
+              <li><a href="servicios.html#derecho-civil">Derecho Civil</a></li>
+              <li><a href="servicios.html#responsabilidad-civil">Responsabilidad Civil</a></li>
+              <li><a href="servicios.html#derecho-penal">Derecho Penal</a></li>
+              <li><a href="servicios.html#extranjeria">Extranjería</a></li>
+            </ul>
+          </li>
+<li class="nav__item">
+            <a href="blog.html">Blog<span class="nav__caret" aria-hidden="true"></span></a>
+            <ul class="nav__sub" aria-label="Apartados de Blog">
+              <li><a href="blog.html#tarjetas-revolving">Tarjetas revolving</a></li>
+              <li><a href="blog.html#prestamos-hipotecas">Préstamos e hipotecas</a></li>
+              <li><a href="blog.html#deudas">Deudas</a></li>
+            </ul>
+          </li>
+<li class="nav__item">
+            <a href="contacto.html">Contacto<span class="nav__caret" aria-hidden="true"></span></a>
+            <ul class="nav__sub" aria-label="Apartados de Contacto">
+              <li><a href="contacto.html#formulario">Formulario de contacto</a></li>
+              <li><a href="tel:+34624566690">Teléfono: +34 624 566 690</a></li>
+              <li><a href="mailto:info@maranabogados.es">info@maranabogados.es</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <a class="btn header-cta" href="contacto.html#formulario">Solicitar consulta</a>
@@ -82,7 +121,7 @@
           <p class="kicker">Áreas de práctica</p>
           <h1 class="display-l" id="page-title" data-split>Servicios jurídicos<br>adaptados a sus <em>necesidades</em></h1>
           <div class="page-head__aside reveal" data-delay="0.4">
-            <p class="deck">Derecho Civil, Responsabilidad Civil, Derecho Penal, Extranjería y Ley de la Segunda Oportunidad.</p>
+            <p class="deck">Ley de la Segunda Oportunidad, Derecho Civil, Responsabilidad Civil, Derecho Penal y Extranjería.</p>
             <a class="btn" href="contacto.html#formulario">Contactar <span class="arrow" aria-hidden="true">→</span></a>
           </div>
         </div>
@@ -103,18 +142,38 @@
         <div class="practice-layout">
           <nav class="practice-nav" aria-label="Índice de áreas">
             <ol>
-              <li><a href="#derecho-civil"><span>I.</span> Derecho Civil</a></li>
-              <li><a href="#responsabilidad-civil"><span>II.</span> Responsabilidad Civil</a></li>
-              <li><a href="#derecho-penal"><span>III.</span> Derecho Penal</a></li>
-              <li><a href="#extranjeria"><span>IV.</span> Extranjería</a></li>
-              <li><a href="#segunda-oportunidad"><span>V.</span> Ley de la Segunda Oportunidad</a></li>
+              <li><a href="#segunda-oportunidad"><span>I.</span> Ley de la Segunda Oportunidad</a></li>
+              <li><a href="#derecho-civil"><span>II.</span> Derecho Civil</a></li>
+              <li><a href="#responsabilidad-civil"><span>III.</span> Responsabilidad Civil</a></li>
+              <li><a href="#derecho-penal"><span>IV.</span> Derecho Penal</a></li>
+              <li><a href="#extranjeria"><span>V.</span> Extranjería</a></li>
             </ol>
           </nav>
 
           <div>
-            <article class="practice" id="derecho-civil" aria-labelledby="t-civil">
+            <article class="practice" id="segunda-oportunidad" aria-labelledby="t-lso">
               <div class="practice__head">
                 <p class="kicker reveal">I. Área</p>
+                <h2 class="display-m reveal" id="t-lso">Ley de la Segunda Oportunidad</h2>
+              </div>
+              <div class="practice__intro reveal">
+                <p>Asesoramos a particulares y autónomos que atraviesan situaciones de sobreendeudamiento. Estudiamos cada caso para valorar las posibilidades que ofrece la Ley de la Segunda Oportunidad y acompañamos al cliente durante el procedimiento.</p>
+              </div>
+              <ul class="practice-list reveal">
+                <li>Estudio inicial de la situación</li>
+                <li>Análisis de documentación y situación económica</li>
+                <li>Valoración jurídica del caso</li>
+                <li>Acompañamiento en el procedimiento</li>
+              </ul>
+              <p class="practice__more reveal">
+                <a class="link-arrow" href="ley-segunda-oportunidad.html">Más información <span class="arrow" aria-hidden="true">→</span></a>
+                <a class="link-arrow" href="index.html#cuestionario-segunda-oportunidad">Comprobar mi situación <span class="arrow" aria-hidden="true">→</span></a>
+              </p>
+            </article>
+
+            <article class="practice" id="derecho-civil" aria-labelledby="t-civil">
+              <div class="practice__head">
+                <p class="kicker reveal">II. Área</p>
                 <h2 class="display-m reveal" id="t-civil">Derecho Civil</h2>
               </div>
               <div class="practice__intro reveal">
@@ -139,7 +198,7 @@
 
             <article class="practice" id="responsabilidad-civil" aria-labelledby="t-resp">
               <div class="practice__head">
-                <p class="kicker reveal">II. Área</p>
+                <p class="kicker reveal">III. Área</p>
                 <h2 class="display-m reveal" id="t-resp">Responsabilidad Civil</h2>
               </div>
               <div class="practice__intro reveal">
@@ -159,7 +218,7 @@
 
             <article class="practice" id="derecho-penal" aria-labelledby="t-penal">
               <div class="practice__head">
-                <p class="kicker reveal">III. Área</p>
+                <p class="kicker reveal">IV. Área</p>
                 <h2 class="display-m reveal" id="t-penal">Derecho Penal</h2>
               </div>
               <div class="practice__intro reveal">
@@ -181,7 +240,7 @@
 
             <article class="practice" id="extranjeria" aria-labelledby="t-ext">
               <div class="practice__head">
-                <p class="kicker reveal">IV. Área</p>
+                <p class="kicker reveal">V. Área</p>
                 <h2 class="display-m reveal" id="t-ext">Extranjería</h2>
               </div>
               <div class="practice__intro reveal">
@@ -198,26 +257,6 @@
                 <li>Estancias por estudios</li>
                 <li>Visados</li>
               </ul>
-            </article>
-
-            <article class="practice" id="segunda-oportunidad" aria-labelledby="t-lso">
-              <div class="practice__head">
-                <p class="kicker reveal">V. Área</p>
-                <h2 class="display-m reveal" id="t-lso">Ley de la Segunda Oportunidad</h2>
-              </div>
-              <div class="practice__intro reveal">
-                <p>Asesoramos a particulares y autónomos que atraviesan situaciones de sobreendeudamiento. Estudiamos cada caso para valorar las posibilidades que ofrece la Ley de la Segunda Oportunidad y acompañamos al cliente durante el procedimiento.</p>
-              </div>
-              <ul class="practice-list reveal">
-                <li>Estudio inicial de la situación</li>
-                <li>Análisis de documentación y situación económica</li>
-                <li>Valoración jurídica del caso</li>
-                <li>Acompañamiento en el procedimiento</li>
-              </ul>
-              <p class="practice__more reveal">
-                <a class="link-arrow" href="ley-segunda-oportunidad.html">Más información <span class="arrow" aria-hidden="true">→</span></a>
-                <a class="link-arrow" href="index.html#cuestionario-segunda-oportunidad">Comprobar mi situación <span class="arrow" aria-hidden="true">→</span></a>
-              </p>
             </article>
           </div>
         </div>
@@ -280,11 +319,11 @@
           <div class="footer-col">
             <h3>Áreas</h3>
             <ul>
+              <li><a href="ley-segunda-oportunidad.html">Ley de la Segunda Oportunidad</a></li>
               <li><a href="servicios.html#derecho-civil">Derecho Civil</a></li>
               <li><a href="servicios.html#responsabilidad-civil">Responsabilidad Civil</a></li>
               <li><a href="servicios.html#derecho-penal">Derecho Penal</a></li>
               <li><a href="servicios.html#extranjeria">Extranjería</a></li>
-              <li><a href="ley-segunda-oportunidad.html">Ley de la Segunda Oportunidad</a></li>
             </ul>
           </div>
           <div class="footer-col">

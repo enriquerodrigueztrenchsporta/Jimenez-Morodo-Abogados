@@ -303,6 +303,42 @@ ul, ol { padding: 0; list-style: none; }
 .nav a[aria-current="page"] { color: var(--ink); }
 .header-cta { display: none; }
 
+/* Desplegable de apartados (solo escritorio: .nav se oculta en móvil) */
+.nav__item { position: relative; }
+.nav__caret {
+  display: inline-block; width: 6px; height: 6px; margin-left: .45rem;
+  border-right: 1.3px solid currentColor; border-bottom: 1.3px solid currentColor;
+  transform: translateY(-3px) rotate(45deg); opacity: .55;
+  transition: transform .35s var(--ease-out), opacity .3s;
+}
+.nav__item:hover .nav__caret, .nav__item:focus-within .nav__caret { transform: translateY(0) rotate(225deg); opacity: 1; }
+.nav .nav__sub {
+  position: absolute; top: 100%; left: -1.1rem; z-index: 110;
+  display: grid; gap: 0; min-width: 250px;
+  margin-top: .9rem; padding: .5rem;
+  background: #fff; border: 1px solid var(--line); border-top: 2px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 48px -24px rgba(15, 23, 42, .35);
+  opacity: 0; visibility: hidden; transform: translateY(6px);
+  transition: opacity .25s var(--ease-out), transform .3s var(--ease-out), visibility 0s linear .3s;
+}
+/* Puente invisible para que el puntero no pierda el desplegable al bajar */
+.nav__sub::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: calc(.9rem + 2px); }
+.nav__item:hover > .nav__sub, .nav__item:focus-within > .nav__sub {
+  opacity: 1; visibility: visible; transform: none;
+  transition: opacity .25s var(--ease-out), transform .3s var(--ease-out), visibility 0s;
+}
+.nav__item.is-dismissed > .nav__sub { opacity: 0; visibility: hidden; }
+.nav .nav__sub a {
+  display: block; padding: .6rem .8rem;
+  font-size: 14px; font-weight: 500; line-height: 1.35; color: var(--ink-soft); white-space: nowrap;
+  border-radius: var(--radius);
+  transition: background-color .25s, color .25s, padding-left .35s var(--ease-out);
+}
+.nav .nav__sub a::after { display: none; }
+.nav .nav__sub a:hover, .nav .nav__sub a:focus-visible { background: var(--paper-2); color: var(--accent); padding-left: 1.05rem; }
+.nav .nav__sub a:focus-visible { outline-offset: -2px; }
+
 .menu-toggle {
   display: inline-flex; align-items: center; gap: .6rem;
   font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;

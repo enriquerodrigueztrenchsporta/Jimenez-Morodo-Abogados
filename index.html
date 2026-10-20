@@ -17,17 +17,17 @@
   <link rel="icon" type="image/webp" href="assets/img/favicon.webp">
   <link rel="preload" href="assets/fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20261020b">
-  <script defer src="lib/gsap.min.js?v=20261020b"></script>
-  <script defer src="lib/ScrollTrigger.min.js?v=20261020b"></script>
-  <script defer src="lib/manifest.js?v=20261020b"></script>
-  <script defer src="lso/content.js?v=20261020b"></script>
-  <script defer src="lso/rules.js?v=20261020b"></script>
-  <script defer src="lso/engine.js?v=20261020b"></script>
-  <script defer src="lso/validate.js?v=20261020b"></script>
-  <script defer src="lso/submit.js?v=20261020b"></script>
-  <script defer src="lso/quiz.js?v=20261020b"></script>
-  <script defer src="main.js?v=20261020b"></script>
+  <link rel="stylesheet" href="styles.css?v=20261020c">
+  <script defer src="lib/gsap.min.js?v=20261020c"></script>
+  <script defer src="lib/ScrollTrigger.min.js?v=20261020c"></script>
+  <script defer src="lib/manifest.js?v=20261020c"></script>
+  <script defer src="lso/content.js?v=20261020c"></script>
+  <script defer src="lso/rules.js?v=20261020c"></script>
+  <script defer src="lso/engine.js?v=20261020c"></script>
+  <script defer src="lso/validate.js?v=20261020c"></script>
+  <script defer src="lso/submit.js?v=20261020c"></script>
+  <script defer src="lso/quiz.js?v=20261020c"></script>
+  <script defer src="main.js?v=20261020c"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
@@ -52,11 +52,50 @@
       </a>
       <nav class="nav" aria-label="Principal">
         <ul>
-<li><a href="index.html" aria-current="page">Inicio</a></li>
-<li><a href="nosotros.html">Sobre Nosotros</a></li>
-<li><a href="servicios.html">Servicios</a></li>
-<li><a href="blog.html">Blog</a></li>
-<li><a href="contacto.html">Contacto</a></li>
+<li class="nav__item">
+            <a href="index.html" aria-current="page">Inicio<span class="nav__caret" aria-hidden="true"></span></a>
+            <ul class="nav__sub" aria-label="Apartados de Inicio">
+              <li><a href="index.html#segunda-oportunidad">Ley de la Segunda Oportunidad</a></li>
+              <li><a href="index.html#despacho">El despacho</a></li>
+              <li><a href="index.html#compromiso">Compromiso</a></li>
+              <li><a href="index.html#servicios">Servicios jurídicos</a></li>
+              <li><a href="index.html#consulta">Solicita una consulta</a></li>
+            </ul>
+          </li>
+<li class="nav__item">
+            <a href="nosotros.html">Sobre Nosotros<span class="nav__caret" aria-hidden="true"></span></a>
+            <ul class="nav__sub" aria-label="Apartados de Sobre Nosotros">
+              <li><a href="nosotros.html">Historia y misión</a></li>
+              <li><a href="nosotros.html#valores">Valores</a></li>
+              <li><a href="nosotros.html#consulta">Solicita una consulta</a></li>
+            </ul>
+          </li>
+<li class="nav__item">
+            <a href="servicios.html">Servicios<span class="nav__caret" aria-hidden="true"></span></a>
+            <ul class="nav__sub" aria-label="Apartados de Servicios">
+              <li><a href="ley-segunda-oportunidad.html">Ley de la Segunda Oportunidad</a></li>
+              <li><a href="servicios.html#derecho-civil">Derecho Civil</a></li>
+              <li><a href="servicios.html#responsabilidad-civil">Responsabilidad Civil</a></li>
+              <li><a href="servicios.html#derecho-penal">Derecho Penal</a></li>
+              <li><a href="servicios.html#extranjeria">Extranjería</a></li>
+            </ul>
+          </li>
+<li class="nav__item">
+            <a href="blog.html">Blog<span class="nav__caret" aria-hidden="true"></span></a>
+            <ul class="nav__sub" aria-label="Apartados de Blog">
+              <li><a href="blog.html#tarjetas-revolving">Tarjetas revolving</a></li>
+              <li><a href="blog.html#prestamos-hipotecas">Préstamos e hipotecas</a></li>
+              <li><a href="blog.html#deudas">Deudas</a></li>
+            </ul>
+          </li>
+<li class="nav__item">
+            <a href="contacto.html">Contacto<span class="nav__caret" aria-hidden="true"></span></a>
+            <ul class="nav__sub" aria-label="Apartados de Contacto">
+              <li><a href="contacto.html#formulario">Formulario de contacto</a></li>
+              <li><a href="tel:+34624566690">Teléfono: +34 624 566 690</a></li>
+              <li><a href="mailto:info@maranabogados.es">info@maranabogados.es</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <a class="btn header-cta" href="contacto.html#formulario">Solicitar consulta</a>
@@ -171,7 +210,7 @@
     </section>
 
     <!-- DESPACHO -->
-    <section class="section" aria-labelledby="despacho-title">
+    <section class="section" id="despacho" aria-labelledby="despacho-title">
       <div class="container">
         <div class="intro-grid">
           <div>
@@ -191,7 +230,7 @@
     </section>
 
     <!-- COMPROMISO -->
-    <section class="section section--tint" aria-labelledby="compromiso-title">
+    <section class="section section--tint" id="compromiso" aria-labelledby="compromiso-title">
       <div class="container">
         <div class="section-head">
           <p class="kicker reveal">Las personas primero</p>
@@ -241,7 +280,7 @@
     </section>
 
     <!-- SERVICIOS -->
-    <section class="section" aria-labelledby="servicios-title">
+    <section class="section" id="servicios" aria-labelledby="servicios-title">
       <div class="container">
         <div class="section-head">
           <p class="kicker reveal">Áreas de práctica</p>
@@ -251,39 +290,39 @@
         <ol class="services">
           <li class="service reveal">
             <span class="service__num">I.</span>
+            <h3 class="service__title">Ley de la Segunda Oportunidad</h3>
+            <p>Asesoramos a particulares y autónomos que atraviesan situaciones de sobreendeudamiento. Estudiamos cada caso para valorar las posibilidades que ofrece la Ley de la Segunda Oportunidad y acompañamos al cliente durante el procedimiento.</p>
+            <a class="link-arrow" href="ley-segunda-oportunidad.html">Más información <span class="arrow" aria-hidden="true">→</span></a>
+          </li>
+          <li class="service reveal">
+            <span class="service__num">II.</span>
             <h3 class="service__title">Derecho Bancario</h3>
             <p>Reclamamos deudas y recuperamos cantidades indebidamente abonadas. Especialistas en ejecuciones hipotecarias, reclamaciones por cláusulas abusivas, tarjetas revolving, gastos hipotecarios y otros conflictos bancarios.</p>
             <a class="link-arrow" href="servicios.html#derecho-civil">Más información <span class="arrow" aria-hidden="true">→</span></a>
           </li>
           <li class="service reveal">
-            <span class="service__num">II.</span>
+            <span class="service__num">III.</span>
             <h3 class="service__title">Derecho de Familia</h3>
             <p>Asesoramiento en procesos de separación y divorcio, acuerdos de custodia y régimen de visitas. Orientación y apoyo en trámites de adopción y tutela de menores. Facilitamos soluciones amistosas en conflictos familiares.</p>
             <a class="link-arrow" href="servicios.html#derecho-civil">Más información <span class="arrow" aria-hidden="true">→</span></a>
           </li>
           <li class="service reveal">
-            <span class="service__num">III.</span>
+            <span class="service__num">IV.</span>
             <h3 class="service__title">Derecho Penal</h3>
             <p>Defensa y representación en todo tipo de procedimientos penales. Asistencia al detenido, acusación y defensa, delitos contra las personas, el patrimonio, la seguridad vial, violencia de género y ejecución de sentencias.</p>
             <a class="link-arrow" href="servicios.html#derecho-penal">Más información <span class="arrow" aria-hidden="true">→</span></a>
           </li>
           <li class="service reveal">
-            <span class="service__num">IV.</span>
+            <span class="service__num">V.</span>
             <h3 class="service__title">Extranjería</h3>
             <p>Asesoramiento y gestión de nacionalidad española, visados, permisos de residencia y trabajo, reagrupación familiar y regularización de la situación administrativa de extranjeros en España.</p>
             <a class="link-arrow" href="servicios.html#extranjeria">Más información <span class="arrow" aria-hidden="true">→</span></a>
           </li>
           <li class="service reveal">
-            <span class="service__num">V.</span>
+            <span class="service__num">VI.</span>
             <h3 class="service__title">Responsabilidad Civil</h3>
             <p>Reclamación de indemnizaciones por daños y perjuicios derivados de accidentes de tráfico, negligencias, incumplimientos contractuales y otros supuestos de responsabilidad civil, tanto en vía judicial como extrajudicial.</p>
             <a class="link-arrow" href="servicios.html#responsabilidad-civil">Más información <span class="arrow" aria-hidden="true">→</span></a>
-          </li>
-          <li class="service reveal">
-            <span class="service__num">VI.</span>
-            <h3 class="service__title">Ley de la Segunda Oportunidad</h3>
-            <p>Asesoramos a particulares y autónomos que atraviesan situaciones de sobreendeudamiento. Estudiamos cada caso para valorar las posibilidades que ofrece la Ley de la Segunda Oportunidad y acompañamos al cliente durante el procedimiento.</p>
-            <a class="link-arrow" href="ley-segunda-oportunidad.html">Más información <span class="arrow" aria-hidden="true">→</span></a>
           </li>
         </ol>
         <p class="reveal" style="margin-top:3rem"><a class="btn btn--ghost" href="servicios.html">Ver todos los servicios <span class="arrow" aria-hidden="true">→</span></a></p>
@@ -349,11 +388,11 @@
           <div class="footer-col">
             <h3>Áreas</h3>
             <ul>
+              <li><a href="ley-segunda-oportunidad.html">Ley de la Segunda Oportunidad</a></li>
               <li><a href="servicios.html#derecho-civil">Derecho Civil</a></li>
               <li><a href="servicios.html#responsabilidad-civil">Responsabilidad Civil</a></li>
               <li><a href="servicios.html#derecho-penal">Derecho Penal</a></li>
               <li><a href="servicios.html#extranjeria">Extranjería</a></li>
-              <li><a href="ley-segunda-oportunidad.html">Ley de la Segunda Oportunidad</a></li>
             </ul>
           </div>
           <div class="footer-col">

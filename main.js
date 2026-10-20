@@ -58,6 +58,26 @@
     matchMedia("(min-width: 960px)").addEventListener("change", function (e) { if (e.matches) set(false); });
   }
 
+  /* ---------- Desplegables del menú: Escape los cierra (WCAG 1.4.13) ---------- */
+  function initNavSub() {
+    var items = $$(".nav__item");
+    if (!items.length) return;
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      items.forEach(function (item) {
+        if (item.matches(":hover") || item.contains(document.activeElement)) {
+          item.classList.add("is-dismissed");
+          if (item.contains(document.activeElement)) item.querySelector("a").focus();
+        }
+      });
+    });
+    items.forEach(function (item) {
+      function reset() { item.classList.remove("is-dismissed"); }
+      item.addEventListener("mouseleave", reset);
+      item.addEventListener("focusout", function (e) { if (!item.contains(e.relatedTarget)) reset(); });
+    });
+  }
+
   /* ---------- Revelados al hacer scroll (threshold bajo + red de 6 s) ---------- */
   function initReveals() {
     var items = $$(".reveal, [data-rule]");
@@ -238,6 +258,7 @@
   function boot() {
     safe(initHeader, "initHeader");
     safe(initMenu, "initMenu");
+    safe(initNavSub, "initNavSub");
     safe(initReveals, "initReveals");
     safe(initCounters, "initCounters");
     safe(initPracticeNav, "initPracticeNav");

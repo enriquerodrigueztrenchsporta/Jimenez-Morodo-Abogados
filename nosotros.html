@@ -17,11 +17,11 @@
   <link rel="icon" type="image/webp" href="assets/img/favicon.webp">
   <link rel="preload" href="assets/fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20261020b">
-  <script defer src="lib/gsap.min.js?v=20261020b"></script>
-  <script defer src="lib/ScrollTrigger.min.js?v=20261020b"></script>
-  <script defer src="lib/manifest.js?v=20261020b"></script>
-  <script defer src="main.js?v=20261020b"></script>
+  <link rel="stylesheet" href="styles.css?v=20261020c">
+  <script defer src="lib/gsap.min.js?v=20261020c"></script>
+  <script defer src="lib/ScrollTrigger.min.js?v=20261020c"></script>
+  <script defer src="lib/manifest.js?v=20261020c"></script>
+  <script defer src="main.js?v=20261020c"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
@@ -46,11 +46,50 @@
       </a>
       <nav class="nav" aria-label="Principal">
         <ul>
-<li><a href="index.html">Inicio</a></li>
-<li><a href="nosotros.html" aria-current="page">Sobre Nosotros</a></li>
-<li><a href="servicios.html">Servicios</a></li>
-<li><a href="blog.html">Blog</a></li>
-<li><a href="contacto.html">Contacto</a></li>
+<li class="nav__item">
+            <a href="index.html">Inicio<span class="nav__caret" aria-hidden="true"></span></a>
+            <ul class="nav__sub" aria-label="Apartados de Inicio">
+              <li><a href="index.html#segunda-oportunidad">Ley de la Segunda Oportunidad</a></li>
+              <li><a href="index.html#despacho">El despacho</a></li>
+              <li><a href="index.html#compromiso">Compromiso</a></li>
+              <li><a href="index.html#servicios">Servicios jurídicos</a></li>
+              <li><a href="index.html#consulta">Solicita una consulta</a></li>
+            </ul>
+          </li>
+<li class="nav__item">
+            <a href="nosotros.html" aria-current="page">Sobre Nosotros<span class="nav__caret" aria-hidden="true"></span></a>
+            <ul class="nav__sub" aria-label="Apartados de Sobre Nosotros">
+              <li><a href="nosotros.html">Historia y misión</a></li>
+              <li><a href="nosotros.html#valores">Valores</a></li>
+              <li><a href="nosotros.html#consulta">Solicita una consulta</a></li>
+            </ul>
+          </li>
+<li class="nav__item">
+            <a href="servicios.html">Servicios<span class="nav__caret" aria-hidden="true"></span></a>
+            <ul class="nav__sub" aria-label="Apartados de Servicios">
+              <li><a href="ley-segunda-oportunidad.html">Ley de la Segunda Oportunidad</a></li>
+              <li><a href="servicios.html#derecho-civil">Derecho Civil</a></li>
+              <li><a href="servicios.html#responsabilidad-civil">Responsabilidad Civil</a></li>
+              <li><a href="servicios.html#derecho-penal">Derecho Penal</a></li>
+              <li><a href="servicios.html#extranjeria">Extranjería</a></li>
+            </ul>
+          </li>
+<li class="nav__item">
+            <a href="blog.html">Blog<span class="nav__caret" aria-hidden="true"></span></a>
+            <ul class="nav__sub" aria-label="Apartados de Blog">
+              <li><a href="blog.html#tarjetas-revolving">Tarjetas revolving</a></li>
+              <li><a href="blog.html#prestamos-hipotecas">Préstamos e hipotecas</a></li>
+              <li><a href="blog.html#deudas">Deudas</a></li>
+            </ul>
+          </li>
+<li class="nav__item">
+            <a href="contacto.html">Contacto<span class="nav__caret" aria-hidden="true"></span></a>
+            <ul class="nav__sub" aria-label="Apartados de Contacto">
+              <li><a href="contacto.html#formulario">Formulario de contacto</a></li>
+              <li><a href="tel:+34624566690">Teléfono: +34 624 566 690</a></li>
+              <li><a href="mailto:info@maranabogados.es">info@maranabogados.es</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <a class="btn header-cta" href="contacto.html#formulario">Solicitar consulta</a>
@@ -98,7 +137,7 @@
       </figure>
     </div>
 
-    <section class="section" aria-labelledby="valores-title">
+    <section class="section" id="valores" aria-labelledby="valores-title">
       <div class="container">
         <div class="intro-grid">
           <div>
@@ -179,11 +218,11 @@
           <div class="footer-col">
             <h3>Áreas</h3>
             <ul>
+              <li><a href="ley-segunda-oportunidad.html">Ley de la Segunda Oportunidad</a></li>
               <li><a href="servicios.html#derecho-civil">Derecho Civil</a></li>
               <li><a href="servicios.html#responsabilidad-civil">Responsabilidad Civil</a></li>
               <li><a href="servicios.html#derecho-penal">Derecho Penal</a></li>
               <li><a href="servicios.html#extranjeria">Extranjería</a></li>
-              <li><a href="ley-segunda-oportunidad.html">Ley de la Segunda Oportunidad</a></li>
             </ul>
           </div>
           <div class="footer-col">
