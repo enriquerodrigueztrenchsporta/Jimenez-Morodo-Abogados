@@ -9,32 +9,47 @@ Compone cada página HTML de la raíz a partir de:
 Uso:
   python tools/build.py                 # versión de caché = fecha de hoy
   python tools/build.py --version 20261013
+  python tools/build.py --site-url https://www.maranabogados.es/
 
 Así la cabecera, el pie y el cache-buster ?v= son idénticos en todas las páginas.
+También genera sitemap.xml, las URL canónicas y los datos estructurados.
 Solo usa la biblioteca estándar de Python.
 """
 
 import argparse
 import datetime as dt
+import html
+import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 TOOLS = ROOT / "tools"
+
+# Dirección pública de la web (con barra final). Cámbiala, o usa --site-url,
+# cuando la web pase al dominio definitivo: de ella salen las URL canónicas,
+# og:url y sitemap.xml.
+SITE_URL = "https://enriquerodrigueztrenchsporta.github.io/Maran-Abogados/"
 
 # clave de navegación, archivo de salida, título, descripción
 PAGES = [
     ("inicio", "index.html",
      "Maran Abogados · Derecho Civil, Penal y Extranjería",
      "Despacho de abogados especializado en Derecho Civil, Derecho Penal y Extranjería. "
-     "Asesoramiento y defensa jurídica con atención personalizada."),
+     "Asesoramiento y defensa jurídica con atención personalizada y valoración inicial "
+     "de casos de Ley de la Segunda Oportunidad."),
     ("nosotros", "nosotros.html",
      "Sobre nosotros · Maran Abogados",
      "La historia, la misión y los valores de Maran Abogados: integridad, compromiso y respeto "
      "en la defensa jurídica de nuestros clientes."),
     ("servicios", "servicios.html",
      "Servicios jurídicos · Maran Abogados",
-     "Áreas de práctica de Maran Abogados: Derecho Civil, Responsabilidad Civil, Derecho Penal "
-     "y Extranjería."),
+     "Áreas de práctica de Maran Abogados: Derecho Civil, Responsabilidad Civil, Derecho Penal, "
+     "Extranjería y Ley de la Segunda Oportunidad."),
+    ("segunda-oportunidad", "ley-segunda-oportunidad.html",
+     "Ley de la Segunda Oportunidad · Maran Abogados",
+     "Asesoramiento en la Ley de la Segunda Oportunidad para particulares y autónomos con "
+     "sobreendeudamiento. Estudiamos tu caso y te orientamos sobre la exoneración de deudas."),
     ("blog", "blog.html",
      "Blog · Maran Abogados",
      "Tarjetas revolving, préstamos e hipotecas, deudas que no puedes pagar: casos frecuentes "
@@ -68,6 +83,16 @@ NAV = [
     ("contacto", "contacto.html", "Contacto"),
 ]
 
+# Scripts adicionales por página (se cargan con defer después de lib/manifest.js)
+LSO_SCRIPTS = ["lso/content.js", "lso/rules.js", "lso/engine.js", "lso/validate.js",
+               "lso/submit.js", "lso/quiz.js"]
+PAGE_SCRIPTS = {
+    "inicio": LSO_SCRIPTS,
+}
+
+# Páginas que no deben tener URL canónica ni figurar en sitemap.xml
+NOT_INDEXED = {"404"}
+
 
 def read(path):
     return path.read_text(encoding="utf-8")
@@ -81,11 +106,95 @@ def nav_items(active, template):
     return "\n".join(out)
 
 
+def page_url(site_url, filename):
+    return site_url if filename == "index.html" else site_url + filename
+
+
+def plain_text(fragment):
+    text = re.sub(r"<[^>]+>", " ", fragment)
+    text = html.unescape(text).replace(" ", " ")
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def faq_items(body):
+    """Preguntas y respuestas de los bloques <details class="faq__item"> de la página."""
+    pattern = re.compile(
+        r'<details class="faq__item[^"]*">\s*<summary><h3 class="faq__q">(.*?)</h3></summary>'
+        r'\s*<div class="faq__a">(.*?)</div>\s*</details>', re.S)
+    return [(plain_text(q), plain_text(a)) for q, a in pattern.findall(body)]
+
+
+def structured_data(key, body, url, site_url, description):
+    """Datos estructurados JSON-LD, solo con información visible en la página."""
+    if key != "segunda-oportunidad":
+        return []
+    blocks = [{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Ley de la Segunda Oportunidad",
+        "serviceType": "Asesoramiento jurídico en exoneración del pasivo insatisfecho",
+        "description": description,
+        "url": url,
+        "provider": {
+            "@type": "LegalService",
+            "name": "Maran Abogados",
+            "url": site_url,
+            "telephone": "+34624566690",
+            "email": "info@maranabogados.es",
+        },
+    }]
+    faqs = faq_items(body)
+    if faqs:
+        blocks.append({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [{
+                "@type": "Question",
+                "name": q,
+                "acceptedAnswer": {"@type": "Answer", "text": a},
+            } for q, a in faqs],
+        })
+    return blocks
+
+
+def head_extra(key, filename, body, site_url, description):
+    lines = []
+    if key not in NOT_INDEXED:
+        url = page_url(site_url, filename)
+        lines.append(f'  <link rel="canonical" href="{url}">')
+        lines.append(f'  <meta property="og:url" content="{url}">')
+        for block in structured_data(key, body, url, site_url, description):
+            data = json.dumps(block, ensure_ascii=False, indent=2).replace("</", "<\\/")
+            lines.append('  <script type="application/ld+json">\n' + data + "\n  </script>")
+    return "\n".join(lines)
+
+
+def scripts_extra(key, v):
+    return "\n".join(f'  <script defer src="{src}?v={v}"></script>' for src in PAGE_SCRIPTS.get(key, []))
+
+
+def fill(template, name, value):
+    """Sustituye {{name}}; si el valor está vacío, elimina también la línea."""
+    if not value:
+        return template.replace("{{" + name + "}}\n", "")
+    return template.replace("{{" + name + "}}", value)
+
+
+def sitemap(site_url):
+    urls = [page_url(site_url, filename) for key, filename, *_ in PAGES if key not in NOT_INDEXED]
+    items = "\n".join(f"  <url><loc>{html.escape(u)}</loc></url>" for u in urls)
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            f"{items}\n</urlset>\n")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--version", default=dt.date.today().strftime("%Y%m%d"))
+    ap.add_argument("--site-url", default=SITE_URL)
     args = ap.parse_args()
     v = args.version
+    site_url = args.site_url if args.site_url.endswith("/") else args.site_url + "/"
 
     layout = read(TOOLS / "partials" / "layout.html")
     header = read(TOOLS / "partials" / "header.html")
@@ -101,15 +210,19 @@ def main():
             "{{NAV_MOBILE}}",
             nav_items(key, '<li><a class="mobile-menu__link" href="{href}"{current}>{label} <span>{n}</span></a></li>'),
         )
-        html = (layout
-                .replace("{{TITLE}}", title)
-                .replace("{{DESCRIPTION}}", description)
-                .replace("{{HEADER}}", head)
-                .replace("{{MAIN}}", body)
-                .replace("{{FOOTER}}", footer)
-                .replace("{{V}}", v))
-        (ROOT / filename).write_text(html, encoding="utf-8", newline="\n")
+        html_out = fill(layout, "HEAD_EXTRA", head_extra(key, filename, body, site_url, description))
+        html_out = fill(html_out, "SCRIPTS_EXTRA", scripts_extra(key, v))
+        html_out = (html_out
+                    .replace("{{TITLE}}", title)
+                    .replace("{{DESCRIPTION}}", description)
+                    .replace("{{HEADER}}", head)
+                    .replace("{{MAIN}}", body)
+                    .replace("{{FOOTER}}", footer)
+                    .replace("{{V}}", v))
+        (ROOT / filename).write_text(html_out, encoding="utf-8", newline="\n")
         print(f"  {filename}")
+    (ROOT / "sitemap.xml").write_text(sitemap(site_url), encoding="utf-8", newline="\n")
+    print("  sitemap.xml")
     print(f"Versión de caché: ?v={v}")
 
 

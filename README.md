@@ -14,6 +14,7 @@ se revisa.
 | `index.html` | Inicio |
 | `nosotros.html` | Sobre Nosotros |
 | `servicios.html` | Servicios (áreas de práctica) |
+| `ley-segunda-oportunidad.html` | Ley de la Segunda Oportunidad (detalle del servicio) |
 | `blog.html` | Blog (tarjetas revolving, préstamos e hipotecas, deudas) |
 | `contacto.html` | Contacto |
 | `aviso-legal.html` | Aviso legal y créditos fotográficos |
@@ -39,7 +40,7 @@ Las páginas de la raíz se **generan**. No las edites a mano:
 Los estilos están en `styles.css`, el comportamiento en `main.js` y los datos de la marca en
 `lib/manifest.js`.
 
-## Contacto y formulario
+## Contacto y formulario de la página Contacto
 
 `contacto.html#formulario` tiene un formulario con Nombre, Asunto y Problema. **No envía datos a
 ningún servidor**: al pulsar «Enviar» abre la aplicación de correo del visitante con el mensaje
@@ -48,6 +49,21 @@ terceros. Los botones «Ponte en contacto con nosotros» llevan a ese formulario
 rellenan el asunto automáticamente (`contacto.html?asunto=...`).
 
 La web no usa cookies ni almacenamiento en el navegador, y no tiene mapa.
+
+## Cuestionario de la Ley de la Segunda Oportunidad
+
+La portada incluye, justo después del hero, un cuestionario de cuatro preguntas con un formulario
+de captación (código en `lso/`). Las solicitudes llegan a `info@maranabogados.es` a través de
+FormSubmit. **El primer envío dispara un correo de activación a esa dirección, que hay que
+confirmar una vez.** Los criterios, el envío y la protección de datos están en
+[`docs/segunda-oportunidad.md`](docs/segunda-oportunidad.md).
+
+## Pruebas
+
+```bash
+python tools/build.py
+node --test "tools/tests/*.test.js"
+```
 
 ## Páginas legales
 
@@ -67,7 +83,7 @@ con `python tools/build.py` para que el parámetro `?v=` cambie y los navegadore
 
 - **GitHub Pages (actual):** rama `main`, raíz. No admite `.htaccess`; la caché se controla con
   el parámetro `?v=` de los recursos.
-- **Hostinger u otro hosting Apache:** sube todo el contenido de la carpeta, salvo `tools/`. El
+- **Hostinger u otro hosting Apache:** sube todo el contenido de la carpeta, salvo `tools/` y `docs/`. El
   `.htaccess` incluido controla la caché. Retira la etiqueta `noindex` cuando la web pase a
   producción.
 

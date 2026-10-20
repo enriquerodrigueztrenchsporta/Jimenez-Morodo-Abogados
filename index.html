@@ -4,22 +4,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Maran Abogados · Derecho Civil, Penal y Extranjería</title>
-  <meta name="description" content="Despacho de abogados especializado en Derecho Civil, Derecho Penal y Extranjería. Asesoramiento y defensa jurídica con atención personalizada.">
+  <meta name="description" content="Despacho de abogados especializado en Derecho Civil, Derecho Penal y Extranjería. Asesoramiento y defensa jurídica con atención personalizada y valoración inicial de casos de Ley de la Segunda Oportunidad.">
   <!-- Versión preliminar: retirar esta línea cuando la web se publique en el dominio definitivo -->
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#0f172a">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Maran Abogados · Derecho Civil, Penal y Extranjería">
-  <meta property="og:description" content="Despacho de abogados especializado en Derecho Civil, Derecho Penal y Extranjería. Asesoramiento y defensa jurídica con atención personalizada.">
+  <meta property="og:description" content="Despacho de abogados especializado en Derecho Civil, Derecho Penal y Extranjería. Asesoramiento y defensa jurídica con atención personalizada y valoración inicial de casos de Ley de la Segunda Oportunidad.">
   <meta property="og:locale" content="es_ES">
+  <link rel="canonical" href="https://enriquerodrigueztrenchsporta.github.io/Maran-Abogados/">
+  <meta property="og:url" content="https://enriquerodrigueztrenchsporta.github.io/Maran-Abogados/">
   <link rel="icon" type="image/webp" href="assets/img/favicon.webp">
   <link rel="preload" href="assets/fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20261013-3">
-  <script defer src="lib/gsap.min.js?v=20261013-3"></script>
-  <script defer src="lib/ScrollTrigger.min.js?v=20261013-3"></script>
-  <script defer src="lib/manifest.js?v=20261013-3"></script>
-  <script defer src="main.js?v=20261013-3"></script>
+  <link rel="stylesheet" href="styles.css?v=20261020b">
+  <script defer src="lib/gsap.min.js?v=20261020b"></script>
+  <script defer src="lib/ScrollTrigger.min.js?v=20261020b"></script>
+  <script defer src="lib/manifest.js?v=20261020b"></script>
+  <script defer src="lso/content.js?v=20261020b"></script>
+  <script defer src="lso/rules.js?v=20261020b"></script>
+  <script defer src="lso/engine.js?v=20261020b"></script>
+  <script defer src="lso/validate.js?v=20261020b"></script>
+  <script defer src="lso/submit.js?v=20261020b"></script>
+  <script defer src="lso/quiz.js?v=20261020b"></script>
+  <script defer src="main.js?v=20261020b"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
@@ -111,9 +119,56 @@
           <li>Derecho Penal</li>
           <li>Extranjería</li>
           <li>Responsabilidad Civil</li>
+          <li><a href="ley-segunda-oportunidad.html">Ley de la Segunda Oportunidad</a></li>
         </ul>
       </div>
     </div>
+
+    <!-- LEY DE LA SEGUNDA OPORTUNIDAD (cuestionario: lso/*.js) -->
+    <section class="section section--dark lso" id="segunda-oportunidad" aria-labelledby="lso-title">
+      <div class="container">
+        <div class="lso__grid">
+          <div class="lso__intro">
+            <p class="kicker reveal">Ley de la Segunda Oportunidad</p>
+            <h2 class="display-l reveal" id="lso-title">¿Las deudas no te dejan <em>avanzar</em>?</h2>
+            <p class="lso__lede reveal">La Ley de la Segunda Oportunidad puede ofrecer una vía legal para afrontar determinadas situaciones de sobreendeudamiento. En Maran Abogados estudiamos tu situación y te orientamos sobre las opciones disponibles.</p>
+            <ul class="lso__assurances reveal">
+              <li>
+                <h3>Confidencialidad</h3>
+                <p>Tu consulta se trata con reserva y queda amparada por el secreto profesional.</p>
+              </li>
+              <li>
+                <h3>Acompañamiento</h3>
+                <p>Un abogado estudia tu caso y te explica las opciones con claridad.</p>
+              </li>
+              <li>
+                <h3>Sin compromiso</h3>
+                <p>La valoración inicial no te obliga a iniciar ningún procedimiento.</p>
+              </li>
+            </ul>
+            <p class="reveal"><a class="link-arrow lso__more" href="ley-segunda-oportunidad.html">Qué es y cómo funciona <span class="arrow" aria-hidden="true">→</span></a></p>
+          </div>
+
+          <div class="lso-quiz reveal" id="cuestionario-segunda-oportunidad" data-lso-quiz aria-labelledby="lso-quiz-title">
+            <div class="lso-quiz__head">
+              <h3 class="lso-quiz__title" id="lso-quiz-title">Comprueba si tu caso encaja en nuestros criterios iniciales de valoración.</h3>
+              <p class="lso-quiz__text">Responde a cuatro preguntas breves. Al finalizar, sabrás si podemos continuar con un estudio inicial de tu situación.</p>
+              <ul class="lso-quiz__meta" aria-label="Características del cuestionario">
+                <li>4 preguntas</li>
+                <li>Aprox. 1 minuto</li>
+                <li>Sin compromiso</li>
+                <li>Valoración inicial orientativa</li>
+              </ul>
+            </div>
+            <div class="lso-quiz__app" data-lso-app hidden></div>
+            <div class="lso-quiz__fallback">
+              <p>El cuestionario necesita JavaScript para funcionar. Puedes consultarnos directamente por teléfono o correo electrónico:</p>
+              <p><a href="tel:+34624566690">+34 624 566 690</a> · <a href="mailto:info@maranabogados.es">info@maranabogados.es</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- DESPACHO -->
     <section class="section" aria-labelledby="despacho-title">
@@ -224,6 +279,12 @@
             <p>Reclamación de indemnizaciones por daños y perjuicios derivados de accidentes de tráfico, negligencias, incumplimientos contractuales y otros supuestos de responsabilidad civil, tanto en vía judicial como extrajudicial.</p>
             <a class="link-arrow" href="servicios.html#responsabilidad-civil">Más información <span class="arrow" aria-hidden="true">→</span></a>
           </li>
+          <li class="service reveal">
+            <span class="service__num">VI.</span>
+            <h3 class="service__title">Ley de la Segunda Oportunidad</h3>
+            <p>Asesoramos a particulares y autónomos que atraviesan situaciones de sobreendeudamiento. Estudiamos cada caso para valorar las posibilidades que ofrece la Ley de la Segunda Oportunidad y acompañamos al cliente durante el procedimiento.</p>
+            <a class="link-arrow" href="ley-segunda-oportunidad.html">Más información <span class="arrow" aria-hidden="true">→</span></a>
+          </li>
         </ol>
         <p class="reveal" style="margin-top:3rem"><a class="btn btn--ghost" href="servicios.html">Ver todos los servicios <span class="arrow" aria-hidden="true">→</span></a></p>
       </div>
@@ -292,6 +353,7 @@
               <li><a href="servicios.html#responsabilidad-civil">Responsabilidad Civil</a></li>
               <li><a href="servicios.html#derecho-penal">Derecho Penal</a></li>
               <li><a href="servicios.html#extranjeria">Extranjería</a></li>
+              <li><a href="ley-segunda-oportunidad.html">Ley de la Segunda Oportunidad</a></li>
             </ul>
           </div>
           <div class="footer-col">
