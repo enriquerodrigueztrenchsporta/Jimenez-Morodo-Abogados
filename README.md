@@ -3,9 +3,9 @@
 Web estática (HTML, CSS y JavaScript sin frameworks) del despacho Maran Abogados, basada en el
 boceto de Ionos y desarrollada por Trenchs Advisory.
 
-**Estado:** versión preliminar para revisión del cliente. Las páginas llevan
-`<meta name="robots" content="noindex, nofollow">` para que los buscadores no la indexen mientras
-se revisa.
+**Estado:** versión de producción publicada en GitHub Pages. Las páginas de contenido permiten
+la indexación; la página 404 conserva `noindex`. El generador mantiene sincronizados
+las URL canónicas, los datos estructurados, `sitemap.xml` y `robots.txt`.
 
 ## Páginas
 
@@ -84,8 +84,7 @@ con `python tools/build.py` para que el parámetro `?v=` cambie y los navegadore
 - **GitHub Pages (actual):** rama `main`, raíz. No admite `.htaccess`; la caché se controla con
   el parámetro `?v=` de los recursos.
 - **Hostinger u otro hosting Apache:** sube todo el contenido de la carpeta, salvo `tools/` y `docs/`. El
-  `.htaccess` incluido controla la caché. Retira la etiqueta `noindex` cuando la web pase a
-  producción.
+  `.htaccess` incluido controla la caché. La indexación ya está habilitada para las páginas de contenido.
 
 ## Créditos
 
@@ -94,3 +93,26 @@ con `python tools/build.py` para que el parámetro `?v=` cambie y los navegadore
 - Tipografías Cormorant Garamond, Source Serif 4 y Figtree (SIL Open Font License 1.1), alojadas
   en `assets/fonts/`.
 - GSAP 3.12.5 y ScrollTrigger (licencia estándar de GreenSock), alojadas en `lib/`.
+
+## Cambio futuro a dominio propio
+
+La dirección de producción actual sigue siendo la de GitHub Pages. No hay dominio propio
+configurado. Para cambiarlo, actualiza `SITE_URL` en `tools/build.py` y regenera:
+
+```bash
+python tools/build.py --site-url https://www.maranabogados.es/
+node --test "tools/tests/*.test.js"
+```
+
+Después configura el dominio en Settings > Pages y sus DNS en el proveedor. No cambies
+los registros de correo. El generador actualiza también el sitemap y robots.txt.
+
+## Comprobaciones operativas del despacho
+
+- Confirmar el correo de activación de FormSubmit en `info@maranabogados.es` y comprobar
+  la recepción de una solicitud de prueba. El repositorio no permite verificar esa activación.
+- El formulario de Contacto abre la aplicación de correo: requiere que el visitante
+  termine el envío desde ella.
+- El despacho debe validar los textos legales y sus datos identificativos antes de
+  considerar cerrada la revisión del contenido. La preparación técnica no acredita
+  esa validación.

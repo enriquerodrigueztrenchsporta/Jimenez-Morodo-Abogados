@@ -266,6 +266,7 @@ def main():
         html_out = fill(layout, "HEAD_EXTRA", head_extra(key, filename, body, site_url, description))
         html_out = fill(html_out, "SCRIPTS_EXTRA", scripts_extra(key, v))
         html_out = (html_out
+                    .replace("{{ROBOTS}}", "noindex, follow" if key in NOT_INDEXED else "index, follow")
                     .replace("{{TITLE}}", title)
                     .replace("{{DESCRIPTION}}", description)
                     .replace("{{HEADER}}", head)
@@ -276,6 +277,10 @@ def main():
         print(f"  {filename}")
     (ROOT / "sitemap.xml").write_text(sitemap(site_url), encoding="utf-8", newline="\n")
     print("  sitemap.xml")
+    (ROOT / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\n\nSitemap: {site_url}sitemap.xml\n",
+        encoding="utf-8", newline="\n")
+    print("  robots.txt")
     print(f"Versión de caché: ?v={v}")
 
 

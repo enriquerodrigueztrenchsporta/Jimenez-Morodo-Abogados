@@ -70,7 +70,7 @@ test("página de detalle: H1 único, canonical, descripción y datos estructurad
   const html = read("ley-segunda-oportunidad.html");
   assert.equal((html.match(/<h1[\s>]/g) || []).length, 1);
   assert.match(html, /<title>Ley de la Segunda Oportunidad · Maran Abogados<\/title>/);
-  assert.match(html, /<link rel="canonical" href="https:\/\/[^"]+\/Maran-Abogados\/ley-segunda-oportunidad\.html">/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/[^"]+\/ley-segunda-oportunidad\.html">/);
   const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
   assert.deepEqual(blocks.map((b) => b["@type"]), ["Service", "FAQPage"]);
   assert.equal(blocks[1].mainEntity.length, (html.match(/class="faq__item/g) || []).length);
@@ -112,5 +112,25 @@ test("ningún secreto ni dato personal en el código público del cuestionario",
     assert.doesNotMatch(src, /(api[_-]?key|secret|token|password|contraseña)\s*[:=]\s*["'][^"']+["']/i, f);
     assert.doesNotMatch(src, /console\.(log|info|debug)/, f);
     assert.doesNotMatch(src, /localStorage|sessionStorage|indexedDB/, f);
+  });
+});
+
+
+test("producción: indexación y sitemap coherentes con la dirección publicada", () => {
+  const sitemap = read("sitemap.xml");
+  const home = sitemap.match(/<loc>(https:\/\/[^<]+)<\/loc>/)[1];
+  assert.equal(read("robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${home}sitemap.xml\n`);
+  pages.forEach((file) => {
+    const html = read(file);
+    assert.doesNotMatch(html, /\{\{[A-Z_]+\}\}/, file);
+    if (file === "404.html") {
+      assert.match(html, /name="robots" content="noindex, follow"/, file);
+      assert.doesNotMatch(html, /rel="canonical"/, file);
+    } else {
+      assert.match(html, /name="robots" content="index, follow"/, file);
+      const expected = file === "index.html" ? home : home + file;
+      assert.ok(html.includes(`rel="canonical" href="${expected}"`), file);
+      assert.ok(sitemap.includes(`<loc>${expected}</loc>`), file);
+    }
   });
 });
