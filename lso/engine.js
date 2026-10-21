@@ -7,7 +7,7 @@
 (function (root, factory) {
   var api = factory();
   if (typeof module === "object" && module.exports) module.exports = api;
-  else { root.MaranLSO = root.MaranLSO || {}; root.MaranLSO.engine = api; }
+  else { root.JimenezMorodoLSO = root.JimenezMorodoLSO || {}; root.JimenezMorodoLSO.engine = api; }
 })(this, function () {
   "use strict";
 

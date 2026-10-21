@@ -208,7 +208,7 @@
     var form = $("[data-contact-form]");
     if (!form || form.getAttribute("data-bound")) return;
     form.setAttribute("data-bound", "1");
-    var to = contact.email || "info@maranabogados.es";
+    var to = contact.email || "info@jimenezmorodoabogados.es";
     var nombre = form.querySelector("[name=nombre]");
     var asunto = form.querySelector("[name=asunto]");
     var problema = form.querySelector("[name=problema]");
@@ -231,7 +231,7 @@
         "Problema:",
         problema.value.trim(),
         "",
-        "-- Enviado desde el formulario de la web de Maran Abogados. El remitente ha leído y aceptado la política de privacidad."
+        "-- Enviado desde el formulario de la web de Jimenez & Morodo Abogados. El remitente ha leído y aceptado la política de privacidad."
       ].join("\r\n");
       var href = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
       // Algunas aplicaciones de correo no admiten enlaces mailto de más de ~2.000 caracteres

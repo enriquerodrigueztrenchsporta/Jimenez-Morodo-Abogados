@@ -16,12 +16,12 @@
 (function () {
   "use strict";
 
-  var NS = window.MaranLSO || {};
+  var NS = window.JimenezMorodoLSO || {};
   var brand = window.__BRAND__ || {};
   var contact = brand.contact || {};
   var formsCfg = (brand.forms && brand.forms.segundaOportunidad) || {};
 
-  var EMAIL = contact.email || "info@maranabogados.es";
+  var EMAIL = contact.email || "info@jimenezmorodoabogados.es";
   var PHONE = contact.phone || "+34 624 566 690";
   var PHONE_HREF = contact.phoneHref || "+34624566690";
 
@@ -193,7 +193,7 @@
     info.innerHTML =
       '<p><strong>Información básica sobre protección de datos</strong></p>' +
       '<ul>' +
-      '<li><strong>Responsable:</strong> Maran Abogados (' + EMAIL + ', ' + PHONE + '). Solo los abogados del despacho acceden a tu solicitud.</li>' +
+      '<li><strong>Responsable:</strong> Jimenez & Morodo Abogados (' + EMAIL + ', ' + PHONE + '). Solo los abogados del despacho acceden a tu solicitud.</li>' +
       '<li><strong>Finalidad:</strong> estudiar tu consulta sobre la Ley de la Segunda Oportunidad y contactar contigo para continuar la valoración. Tus respuestas al cuestionario se envían junto con tus datos.</li>' +
       '<li><strong>Legitimación:</strong> aplicación, a petición tuya, de medidas precontractuales.</li>' +
       '<li><strong>Conservación:</strong> mientras se valora tu caso. Si el despacho no asume el caso, los datos se suprimen de inmediato; si lo asume, se conservan hasta que finalice el asunto, sin perjuicio de los plazos que exija la ley.</li>' +

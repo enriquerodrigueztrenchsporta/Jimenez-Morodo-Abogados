@@ -6,7 +6,7 @@
      forms.segundaOportunidad.endpoint
 
    Receptor actual: FormSubmit (https://formsubmit.co/ajax/<correo>),
-   que reenvía cada solicitud a info@maranabogados.es. Es compatible con
+   que reenvía cada solicitud a info@jimenezmorodoabogados.es. Es compatible con
    cualquier receptor que acepte JSON (otro proveedor o una función
    serverless propia). La dirección del receptor es pública por
    naturaleza; las credenciales nunca deben estar en este repositorio.
@@ -19,7 +19,7 @@
 (function (root, factory) {
   var api = factory();
   if (typeof module === "object" && module.exports) module.exports = api;
-  else { root.MaranLSO = root.MaranLSO || {}; root.MaranLSO.submit = api; }
+  else { root.JimenezMorodoLSO = root.JimenezMorodoLSO || {}; root.JimenezMorodoLSO.submit = api; }
 })(this, function () {
   "use strict";
 

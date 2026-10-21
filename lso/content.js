@@ -10,7 +10,7 @@
 (function (root, factory) {
   var api = factory();
   if (typeof module === "object" && module.exports) module.exports = api;
-  else { root.MaranLSO = root.MaranLSO || {}; root.MaranLSO.content = api; }
+  else { root.JimenezMorodoLSO = root.JimenezMorodoLSO || {}; root.JimenezMorodoLSO.content = api; }
 })(this, function () {
   "use strict";
 
@@ -62,7 +62,7 @@
       "continua": {
         badge: "Encaja en los criterios iniciales",
         title: "Podemos continuar con la valoración de tu caso",
-        text: "Por las respuestas facilitadas, tu situación encaja en nuestros criterios iniciales de valoración. Deja tus datos y un abogado de Maran Abogados se pondrá en contacto contigo para estudiar tu caso.",
+        text: "Por las respuestas facilitadas, tu situación encaja en nuestros criterios iniciales de valoración. Deja tus datos y un abogado de Jimenez & Morodo Abogados se pondrá en contacto contigo para estudiar tu caso.",
         note: "Este resultado es orientativo y no constituye una confirmación de que puedas acogerte legalmente al procedimiento.",
         form: true
       },
@@ -88,7 +88,7 @@
       submit: "Solicitar valoración de mi caso",
       success: {
         title: "Hemos recibido tu solicitud",
-        text: "Gracias. Un abogado de Maran Abogados revisará tus respuestas y se pondrá en contacto contigo por teléfono o por correo electrónico."
+        text: "Gracias. Un abogado de Jimenez & Morodo Abogados revisará tus respuestas y se pondrá en contacto contigo por teléfono o por correo electrónico."
       }
     }
   };

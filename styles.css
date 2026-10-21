@@ -1,5 +1,5 @@
 /* =============================================================
-   MARAN ABOGADOS — hoja de estilos
+   JIMENEZ & MORODO ABOGADOS — hoja de estilos
    Arquetipo: Newspaper Editorial (09) adaptado a la paleta del boceto
    (azul marino #0F172A, azul #2563EB, azul pizarra del logotipo).
    ============================================================= */
@@ -256,7 +256,7 @@ ul, ol { padding: 0; list-style: none; }
 .topbar a { color: var(--on-dark); transition: color .3s; }
 .topbar a:hover { color: #9db8ff; }
 .topbar__areas { display: none; letter-spacing: .18em; text-transform: uppercase; font-size: 11.5px; }
-.topbar__contact { display: flex; gap: 1.4rem; margin-left: auto; }
+.topbar__contact { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .2rem 1.1rem; margin-left: auto; padding-block: .45rem; font-size: 12px; }
 .topbar__contact span { display: none; }
 
 .site-header {
@@ -271,14 +271,14 @@ ul, ol { padding: 0; list-style: none; }
 .site-header.is-scrolled { box-shadow: 0 10px 30px -18px rgba(15, 23, 42, .35); }
 .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; height: var(--header-h); }
 
-.brand { display: inline-flex; align-items: center; gap: .85rem; color: var(--ink); }
-.brand__mark { width: 40px; height: auto; transition: transform .6s var(--ease-out); }
+.brand { display: inline-flex; align-items: center; gap: .65rem; min-width: 0; color: var(--ink); }
+.brand__mark { width: 32px; flex: none; height: auto; transition: transform .6s var(--ease-out); }
 .brand:hover .brand__mark { transform: translateY(-2px); }
 .brand__text { display: flex; flex-direction: column; line-height: 1; }
 .brand__name {
   font-family: var(--display); font-weight: 600;
-  font-size: 1.55rem; letter-spacing: .32em; margin-right: -.32em;
-  color: var(--brand);
+  font-size: .95rem; letter-spacing: .08em; margin-right: -.08em;
+  white-space: nowrap; color: var(--brand);
 }
 .brand__sub {
   font-family: var(--display); font-weight: 500;
@@ -289,7 +289,7 @@ ul, ol { padding: 0; list-style: none; }
 .nav { display: none; }
 .nav ul { display: flex; gap: clamp(1rem, 2vw, 2rem); }
 .nav a {
-  position: relative; padding: .4rem 0;
+  position: relative; white-space: nowrap; padding: .4rem 0;
   font-family: var(--sans); font-size: 14.5px; font-weight: 500; color: var(--ink-soft);
   transition: color .3s;
 }
@@ -340,7 +340,7 @@ ul, ol { padding: 0; list-style: none; }
 .nav .nav__sub a:focus-visible { outline-offset: -2px; }
 
 .menu-toggle {
-  display: inline-flex; align-items: center; gap: .6rem;
+  display: inline-flex; flex: none; align-items: center; gap: .6rem;
   font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
   color: var(--ink); padding: .6rem 0;
 }
@@ -651,7 +651,11 @@ img { opacity: 1 !important; transform: none !important; clip-path: none !import
    ============================================================= */
 @media (min-width: 540px) {
   .form__row { grid-template-columns: 1fr 1fr; }
+  .topbar__contact { gap: 1.4rem; padding-block: 0; font-size: inherit; }
   .topbar__contact span { display: inline; }
+  .brand { gap: .85rem; }
+  .brand__mark { width: 40px; }
+  .brand__name { font-size: 1.15rem; letter-spacing: .12em; margin-right: -.12em; }
 }
 @media (min-width: 720px) {
   .columns--2 { column-count: 2; column-rule: 1px solid var(--line); }
@@ -671,7 +675,11 @@ img { opacity: 1 !important; transform: none !important; clip-path: none !import
   .topbar__areas { display: block; }
   .topbar__contact { margin-left: 0; }
   .nav { display: block; }
-  .header-cta { display: inline-flex; padding: .8em 1.2em; font-size: 12.5px; }
+  .header-cta { display: inline-flex; flex: none; padding: .8em 1.2em; font-size: 12.5px; white-space: nowrap; }
+  .site-header .container { gap: 1.25rem; }
+  .nav ul { gap: clamp(.9rem, 1.6vw, 2rem); }
+  .brand__name { font-size: 1rem; letter-spacing: .08em; margin-right: -.08em; }
+  .brand__mark { width: 34px; }
   .menu-toggle, .mobile-menu { display: none; }
   .hero__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
   .intro-grid { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 4rem; }
@@ -687,6 +695,10 @@ img { opacity: 1 !important; transform: none !important; clip-path: none !import
   .practice-layout { grid-template-columns: 260px minmax(0, 1fr); gap: 4.5rem; }
   .practice-nav { display: block; position: sticky; top: calc(var(--header-h) + 2rem); align-self: start; }
   .footer-top { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 4rem; }
+}
+@media (min-width: 1200px) {
+  .brand__name { font-size: 1.3rem; letter-spacing: .14em; margin-right: -.14em; }
+  .brand__mark { width: 40px; }
 }
 @media (min-width: 1280px) {
   .columns--3 { column-count: 3; }

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generador de páginas de Maran Abogados (solo en desarrollo; no se publica).
+Generador de páginas de Jimenez & Morodo Abogados (solo en desarrollo; no se publica).
 
 Compone cada página HTML de la raíz a partir de:
   tools/partials/*.html  -> cabecera, pie, bloque de contacto (comunes)
@@ -9,7 +9,7 @@ Compone cada página HTML de la raíz a partir de:
 Uso:
   python tools/build.py                 # versión de caché = fecha de hoy
   python tools/build.py --version 20261013
-  python tools/build.py --site-url https://www.maranabogados.es/
+  python tools/build.py --site-url https://www.jimenezmorodoabogados.es/
 
 Así la cabecera, el pie y el cache-buster ?v= son idénticos en todas las páginas.
 También genera sitemap.xml, las URL canónicas y los datos estructurados.
@@ -29,49 +29,49 @@ TOOLS = ROOT / "tools"
 # Dirección pública de la web (con barra final). Cámbiala, o usa --site-url,
 # cuando la web pase al dominio definitivo: de ella salen las URL canónicas,
 # og:url y sitemap.xml.
-SITE_URL = "https://enriquerodrigueztrenchsporta.github.io/Maran-Abogados/"
+SITE_URL = "https://enriquerodrigueztrenchsporta.github.io/Jimenez-Morodo-Abogados/"
 
 # clave de navegación, archivo de salida, título, descripción
 PAGES = [
     ("inicio", "index.html",
-     "Maran Abogados · Derecho Civil, Penal y Extranjería",
+     "Jimenez & Morodo Abogados · Derecho Civil, Penal y Extranjería",
      "Despacho de abogados especializado en Derecho Civil, Derecho Penal y Extranjería. "
      "Asesoramiento y defensa jurídica con atención personalizada y valoración inicial "
      "de casos de Ley de la Segunda Oportunidad."),
     ("nosotros", "nosotros.html",
-     "Sobre nosotros · Maran Abogados",
-     "La historia, la misión y los valores de Maran Abogados: integridad, compromiso y respeto "
+     "Sobre nosotros · Jimenez & Morodo Abogados",
+     "La historia, la misión y los valores de Jimenez & Morodo Abogados: integridad, compromiso y respeto "
      "en la defensa jurídica de nuestros clientes."),
     ("servicios", "servicios.html",
-     "Servicios jurídicos · Maran Abogados",
-     "Áreas de práctica de Maran Abogados: Derecho Civil, Responsabilidad Civil, Derecho Penal, "
+     "Servicios jurídicos · Jimenez & Morodo Abogados",
+     "Áreas de práctica de Jimenez & Morodo Abogados: Derecho Civil, Responsabilidad Civil, Derecho Penal, "
      "Extranjería y Ley de la Segunda Oportunidad."),
     ("segunda-oportunidad", "ley-segunda-oportunidad.html",
-     "Ley de la Segunda Oportunidad · Maran Abogados",
+     "Ley de la Segunda Oportunidad · Jimenez & Morodo Abogados",
      "Asesoramiento en la Ley de la Segunda Oportunidad para particulares y autónomos con "
      "sobreendeudamiento. Estudiamos tu caso y te orientamos sobre la exoneración de deudas."),
     ("blog", "blog.html",
-     "Blog · Maran Abogados",
+     "Blog · Jimenez & Morodo Abogados",
      "Tarjetas revolving, préstamos e hipotecas, deudas que no puedes pagar: casos frecuentes "
-     "en los que Maran Abogados puede ayudarte."),
+     "en los que Jimenez & Morodo Abogados puede ayudarte."),
     ("contacto", "contacto.html",
-     "Contacto · Maran Abogados",
-     "Solicita una consulta con Maran Abogados por teléfono, correo electrónico o mediante "
+     "Contacto · Jimenez & Morodo Abogados",
+     "Solicita una consulta con Jimenez & Morodo Abogados por teléfono, correo electrónico o mediante "
      "nuestro formulario."),
     ("aviso", "aviso-legal.html",
-     "Aviso legal · Maran Abogados",
-     "Aviso legal e información del titular del sitio web de Maran Abogados."),
+     "Aviso legal · Jimenez & Morodo Abogados",
+     "Aviso legal e información del titular del sitio web de Jimenez & Morodo Abogados."),
     ("privacidad", "privacidad.html",
-     "Política de privacidad · Maran Abogados",
-     "Política de privacidad y protección de datos del sitio web de Maran Abogados."),
+     "Política de privacidad · Jimenez & Morodo Abogados",
+     "Política de privacidad y protección de datos del sitio web de Jimenez & Morodo Abogados."),
     ("terminos", "terminos.html",
-     "Términos y condiciones · Maran Abogados",
-     "Términos y condiciones de uso del sitio web de Maran Abogados."),
+     "Términos y condiciones · Jimenez & Morodo Abogados",
+     "Términos y condiciones de uso del sitio web de Jimenez & Morodo Abogados."),
     ("cookies", "cookies.html",
-     "Política de cookies · Maran Abogados",
-     "Política de cookies del sitio web de Maran Abogados."),
+     "Política de cookies · Jimenez & Morodo Abogados",
+     "Política de cookies del sitio web de Jimenez & Morodo Abogados."),
     ("404", "404.html",
-     "Página no encontrada · Maran Abogados",
+     "Página no encontrada · Jimenez & Morodo Abogados",
      "La página solicitada no existe."),
 ]
 
@@ -114,7 +114,7 @@ NAV_SUB = {
     "contacto": [
         ("contacto.html#formulario", "Formulario de contacto"),
         ("tel:+34624566690", "Teléfono: +34 624 566 690"),
-        ("mailto:info@maranabogados.es", "info@maranabogados.es"),
+        ("mailto:info@jimenezmorodoabogados.es", "info@jimenezmorodoabogados.es"),
     ],
 }
 
@@ -190,10 +190,10 @@ def structured_data(key, body, url, site_url, description):
         "url": url,
         "provider": {
             "@type": "LegalService",
-            "name": "Maran Abogados",
+            "name": "Jimenez & Morodo Abogados",
             "url": site_url,
             "telephone": "+34624566690",
-            "email": "info@maranabogados.es",
+            "email": "info@jimenezmorodoabogados.es",
         },
     }]
     faqs = faq_items(body)
@@ -267,8 +267,8 @@ def main():
         html_out = fill(html_out, "SCRIPTS_EXTRA", scripts_extra(key, v))
         html_out = (html_out
                     .replace("{{ROBOTS}}", "noindex, follow" if key in NOT_INDEXED else "index, follow")
-                    .replace("{{TITLE}}", title)
-                    .replace("{{DESCRIPTION}}", description)
+                    .replace("{{TITLE}}", html.escape(title))
+                    .replace("{{DESCRIPTION}}", html.escape(description))
                     .replace("{{HEADER}}", head)
                     .replace("{{MAIN}}", body)
                     .replace("{{FOOTER}}", footer)

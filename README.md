@@ -1,6 +1,6 @@
-# Maran Abogados — sitio web
+# Jimenez & Morodo Abogados — sitio web
 
-Web estática (HTML, CSS y JavaScript sin frameworks) del despacho Maran Abogados, basada en el
+Web estática (HTML, CSS y JavaScript sin frameworks) del despacho Jimenez & Morodo Abogados, basada en el
 boceto de Ionos y desarrollada por Trenchs Advisory.
 
 **Estado:** versión de producción publicada en GitHub Pages. Las páginas de contenido permiten
@@ -44,7 +44,7 @@ Los estilos están en `styles.css`, el comportamiento en `main.js` y los datos d
 
 `contacto.html#formulario` tiene un formulario con Nombre, Asunto y Problema. **No envía datos a
 ningún servidor**: al pulsar «Enviar» abre la aplicación de correo del visitante con el mensaje
-preparado para `info@maranabogados.es`. Así la web no almacena datos ni depende de servicios de
+preparado para `info@jimenezmorodoabogados.es`. Así la web no almacena datos ni depende de servicios de
 terceros. Los botones «Ponte en contacto con nosotros» llevan a ese formulario; desde el blog
 rellenan el asunto automáticamente (`contacto.html?asunto=...`).
 
@@ -53,7 +53,7 @@ La web no usa cookies ni almacenamiento en el navegador, y no tiene mapa.
 ## Cuestionario de la Ley de la Segunda Oportunidad
 
 La portada incluye, justo después del hero, un cuestionario de cuatro preguntas con un formulario
-de captación (código en `lso/`). Las solicitudes llegan a `info@maranabogados.es` a través de
+de captación (código en `lso/`). Las solicitudes llegan a `info@jimenezmorodoabogados.es` a través de
 FormSubmit. **El primer envío dispara un correo de activación a esa dirección, que hay que
 confirmar una vez.** Los criterios, el envío y la protección de datos están en
 [`docs/segunda-oportunidad.md`](docs/segunda-oportunidad.md).
@@ -74,7 +74,7 @@ nombre comercial, el correo y el teléfono.
 ## Ver la web
 
 Publicada con GitHub Pages desde la rama `main`:
-<https://enriquerodrigueztrenchsporta.github.io/Maran-Abogados/>
+<https://enriquerodrigueztrenchsporta.github.io/Jimenez-Morodo-Abogados/>
 
 Cada `git push` a `main` vuelve a publicarla en un par de minutos. Si cambias CSS o JS, regenera
 con `python tools/build.py` para que el parámetro `?v=` cambie y los navegadores no usen la caché.
@@ -100,7 +100,7 @@ La dirección de producción actual sigue siendo la de GitHub Pages. No hay domi
 configurado. Para cambiarlo, actualiza `SITE_URL` en `tools/build.py` y regenera:
 
 ```bash
-python tools/build.py --site-url https://www.maranabogados.es/
+python tools/build.py --site-url https://www.jimenezmorodoabogados.es/
 node --test "tools/tests/*.test.js"
 ```
 
@@ -109,7 +109,7 @@ los registros de correo. El generador actualiza también el sitemap y robots.txt
 
 ## Comprobaciones operativas del despacho
 
-- Confirmar el correo de activación de FormSubmit en `info@maranabogados.es` y comprobar
+- Confirmar el correo de activación de FormSubmit en `info@jimenezmorodoabogados.es` y comprobar
   la recepción de una solicitud de prueba. El repositorio no permite verificar esa activación.
 - El formulario de Contacto abre la aplicación de correo: requiere que el visitante
   termine el envío desde ella.

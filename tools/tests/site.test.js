@@ -69,7 +69,7 @@ test("menú: cinco secciones con desplegable; la LSO solo como apartado de Servi
 test("página de detalle: H1 único, canonical, descripción y datos estructurados válidos", () => {
   const html = read("ley-segunda-oportunidad.html");
   assert.equal((html.match(/<h1[\s>]/g) || []).length, 1);
-  assert.match(html, /<title>Ley de la Segunda Oportunidad · Maran Abogados<\/title>/);
+  assert.match(html, /<title>Ley de la Segunda Oportunidad · Jimenez &amp; Morodo Abogados<\/title>/);
   assert.match(html, /<link rel="canonical" href="https:\/\/[^"]+\/ley-segunda-oportunidad\.html">/);
   const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
   assert.deepEqual(blocks.map((b) => b["@type"]), ["Service", "FAQPage"]);
@@ -92,7 +92,7 @@ test("enlaces y recursos internos: relativos, existentes y con anclas válidas",
     for (const m of html.matchAll(/\s(?:href|src)="([^"]+)"/g)) {
       const url = m[1];
       if (/^(https?:|mailto:|tel:|data:)/.test(url)) continue;
-      if (url.startsWith("/")) { problems.push(`${f}: ruta absoluta ${url} (falla bajo /Maran-Abogados/)`); continue; }
+      if (url.startsWith("/")) { problems.push(`${f}: ruta absoluta ${url} (falla bajo /Jimenez-Morodo-Abogados/)`); continue; }
       const [pathPart, hash] = url.split("#");
       const file = pathPart.split("?")[0] || f;
       if (!fs.existsSync(path.join(ROOT, file))) { problems.push(`${f}: no existe ${file}`); continue; }

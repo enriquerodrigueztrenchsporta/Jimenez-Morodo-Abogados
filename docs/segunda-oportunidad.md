@@ -59,11 +59,11 @@ el resultado final es el de mayor prioridad: `no-supera` > `revision` > `continu
 
 ## Envío de solicitudes: estado actual
 
-**Receptor configurado: FormSubmit → info@maranabogados.es** (decisión del 20/10/2026). La
-dirección `https://formsubmit.co/ajax/info@maranabogados.es` está en `lib/manifest.js`.
+**Receptor configurado: FormSubmit → info@jimenezmorodoabogados.es** (decisión del 20/10/2026). La
+dirección `https://formsubmit.co/ajax/info@jimenezmorodoabogados.es` está en `lib/manifest.js`.
 
 **Activación pendiente (una sola vez):** el primer envío real hace que FormSubmit mande a
-`info@maranabogados.es` un correo con el enlace «Activate Form». Hasta pulsarlo, FormSubmit responde
+`info@jimenezmorodoabogados.es` un correo con el enlace «Activate Form». Hasta pulsarlo, FormSubmit responde
 `{"success":"false"}` y el formulario muestra un error (no confirma nada). Una vez activado, cada
 solicitud llega como correo con una tabla de campos, y «Responder» va al correo del solicitante
 (`_replyto`).
@@ -88,10 +88,10 @@ en el navegador.
 ### Cambiar de receptor
 
 Cualquier receptor sirve si cumple dos condiciones: que acepte JSON por HTTPS y que reenvíe la
-solicitud a `info@maranabogados.es`. Alternativas a FormSubmit:
+solicitud a `info@jimenezmorodoabogados.es`. Alternativas a FormSubmit:
 
 1. **Proveedor de formularios** (p. ej., Formspree). Se crea el formulario en la cuenta del despacho
-   con destino `info@maranabogados.es` y se copia su dirección (`https://formspree.io/f/…`) en
+   con destino `info@jimenezmorodoabogados.es` y se copia su dirección (`https://formspree.io/f/…`) en
    `lib/manifest.js`. Esa dirección es pública por diseño y no es un secreto. Es la opción más
    rápida, pero los datos pasan por un tercero (normalmente en EE. UU.). Requiere contrato de
    encargado del tratamiento. El campo trampa se llama `_gotcha` en Formspree: ajusta el nombre en
@@ -104,7 +104,7 @@ solicitud a `info@maranabogados.es`. Alternativas a FormSubmit:
 Después de cambiar de receptor:
 
 1. Escribe la dirección en `lib/manifest.js` y ejecuta `python tools/build.py`.
-2. Haz un envío real de prueba y comprueba que llega a `info@maranabogados.es`.
+2. Haz un envío real de prueba y comprueba que llega a `info@jimenezmorodoabogados.es`.
 3. Actualiza el proveedor en `privacidad.html` (sección «Destinatarios») y en el bloque informativo
    de `lso/quiz.js`.
 
